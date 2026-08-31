@@ -17,7 +17,7 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <div id="carouselExampleInterval" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div id="carouselExampleInterval" class="carousel slide mb-5 carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="row">
                 <div class="carousel-item active col-lg-12 col-md-12 col-sm-12" data-bs-interval="2000">
@@ -129,25 +129,35 @@
                 <h1 class="About-Us-header fw-bold text-light text-center mt-2 mb-5">MANAGEMENT SYSTEM</h1>
                 <p class="About-Us-para text-light fs-4 mt-4"
                     style="line-height:40px;font-family:'Tongari Regular',serif;font-size: 25.2px;"><b>1.) </b>
-                     <b>Our Student Management System</b> makes managing student records simple with complete CRUD functionality. Add, view, update, and delete student information with ease.</p>
-
-                <p class="About-Us-para text-light fs-4 mt-4"
-                    style="line-height:40px;font-family:'Tongari Regular',serif;font-size: 25.2px;"><b>2.) </b>Keep all student data organized and structured in one place, making records easy to access and manage.
+                    <b>Our Student Management System</b> makes managing student records simple with complete CRUD
+                    functionality. Add, view, update, and delete student information with ease.
                 </p>
 
                 <p class="About-Us-para text-light fs-4 mt-4"
-                    style="line-height:40px;font-family:'Tongari Regular',serif;font-size: 25.2px;"><b>3.) </b>With a clean UI and simple features, the system provides a smooth and efficient way to manage student information.
+                    style="line-height:40px;font-family:'Tongari Regular',serif;font-size: 25.2px;"><b>2.) </b>Keep all
+                    student data organized and structured in one place, making records easy to access and manage.
+                </p>
+
+                <p class="About-Us-para text-light fs-4 mt-4"
+                    style="line-height:40px;font-family:'Tongari Regular',serif;font-size: 25.2px;"><b>3.) </b>With a
+                    clean UI and simple features, the system provides a smooth and efficient way to manage student
+                    information.
                 </p>
                 <p class="About-Us-para text-light fs-4 mt-4"
                     style="line-height:40px;font-family:'Tongari Regular',serif;font-size: 25.2px;"><b>4.) </b>
-                     Stay on top of student information with a system designed for quick and hassle-free record management. Everything stays within easy reach.</p>
+                    Stay on top of student information with a system designed for quick and hassle-free record
+                    management. Everything stays within easy reach.</p>
 
                 <p class="About-Us-para text-light fs-4 mt-4"
-                    style="line-height:40px;font-family:'Tongari Regular',serif;font-size: 25.2px;"><b>5.) </b>From maintaining individual student profiles to keeping records up to date, the system keeps your information neat and well structured.
+                    style="line-height:40px;font-family:'Tongari Regular',serif;font-size: 25.2px;"><b>5.) </b>From
+                    maintaining individual student profiles to keeping records up to date, the system keeps your
+                    information neat and well structured.
                 </p>
 
                 <p class="About-Us-para text-light fs-4 mt-4"
-                    style="line-height:40px;font-family:'Tongari Regular',serif;font-size: 25.2px;"><b>6.) </b>Designed with simplicity in mind, the platform offers a clean experience that makes everyday student management faster and more convenient.
+                    style="line-height:40px;font-family:'Tongari Regular',serif;font-size: 25.2px;"><b>6.) </b>Designed
+                    with simplicity in mind, the platform offers a clean experience that makes everyday student
+                    management faster and more convenient.
                 </p>
             </div>
             <div class="Management-img col-lg-6 col-md-12 col-sm-12">
@@ -156,6 +166,118 @@
                 <img src="hogwarts-management-img3.jpg" alt="Hogwarts Management Image 3">
             </div>
         </section>
+    </div>
+    <!-- HEAD STAFF SECTION (IMAGE SLIDER) -->
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div>
+                <h1 class="text-center text-light fw-bold ">OUR HEAD STAFF</h1>
+            </div>
+        </div>
+    </div>
+
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="row">
+                <div class="carousel-item active col-lg-12 col-md-12 col-sm-12" data-bs-interval="2000">
+                    <div class="headstaff-img1">
+                        <!-- <img src="hero-img3.jpg" class="d-block w-100" alt="..."> -->
+                        <p class="Header ms-5 text-light fw-bold text-center">ALBUS DUMBLEDORE</p>
+                        <p class="Body ms-5 text-light fw-bold text-center"><i>~HEADMASTER OF HOGWARTS~</i></p>
+                        <!-- <p class="Body text-light"><i>The School of Witchcraft and Wizardry</i></p> -->
+                        <p class="Body text-light text-center">A wise and powerful wizard who guides Hogwarts with
+                            knowledge, compassion, and courage.</p>
+                    </div>
+                </div>
+                <div class="carousel-item col-lg-12 col-md-12 col-sm-12" data-bs-interval="2000">
+                    <div class="headstaff-img2">
+                        <p class="Header ms-5 text-light fw-bold text-center">SEVERUS SNAPE</p>
+                        <p class="Body ms-5 text-light fw-bold text-center"><i>~PROFESSOR OF POTION~</i></p>
+                        <p class="Body text-light text-center">A strict and highly skilled professor known for his
+                            mastery of
+                            Potions and complex magical knowledge.</p>
+                        <!-- <p class="Body text-light"><i>Keep student records organized,<br>
+                                accessible, and easy to manage.</i></p> -->
+                    </div>
+                </div>
+                <div class="carousel-item col-lg-12 col-md-12 col-sm-12">
+                    <div class="headstaff-img3">
+                        <p class="Header ms-5 text-light fw-bold text-center">MINERVA McGONAGALL</p>
+                        <!-- <p class="Header ms-5 text-light fw-bold">EXCEL.</p> -->
+                        <p class="Body text-light text-center fw-bold"><i>~PROFESSOR OF TRANSFIGURATION~</i></p>
+                        <p class="Body text-light text-center">A respected professor known for her discipline, wisdom,
+                            and
+                            exceptional skill in Transfiguration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="Carousel-Btn carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="Carousel-Btn carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!-- FREUENTLY ASKED QUESTIONS -->
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                    aria-controls="panelsStayOpen-collapseOne">
+                    What is Hogwarts?
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+                    <strong>Hogwarts School of Witchcraft and Wizardry is a magical school where young witches and wizards are trained in the art of magic. Students learn various magical subjects while living and growing together within the castle.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseTwo">
+                    What are the four Hogwarts Houses?
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                aria-labelledby="panelsStayOpen-headingTwo">
+                <div class="accordion-body">
+                    <strong>Hogwarts is divided into four houses: Gryffindor, Slytherin, Ravenclaw, and Hufflepuff. Each house represents different qualities and traditions, giving students a unique identity throughout their time at Hogwarts.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseThree">
+                    What is the Student Management System?
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                aria-labelledby="panelsStayOpen-headingThree">
+                <div class="accordion-body">
+                    <strong>The Student Management System is a web-based application created to make managing student information easier and more organized. It provides a structured way to maintain student records in one centralized system.
+                </div>
+            </div>
+        </div>
     </div>
     <script src="bootstrap.bundle.min.js"></script>
 </body>

@@ -110,6 +110,11 @@ span.Carousel-Btn {
   width: 10%;
   opacity: 0;
 }
+/* 
+button.hero {
+  width: 5%;
+} */
+
 /* ABOUT US SECTION */
 section.About-Us,
 div.About-Section {
@@ -150,4 +155,81 @@ div.card-section div.Card:hover img {
 div.Management-Section div.Management-img img {
   width: 100%;
   aspect-ratio: 3/1.4;
+}
+/* HEAD STAFF SECTION (IMAGE SLIDER) */
+div.headstaff-img1 {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8) 30%,
+      /* rgba(0, 0, 0, 0.4) 55%, */
+      rgba(0, 0, 0, 0.2) 75%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    url("albus-dumbledore.jpg");
+  /* url('hero-img1.png.png'); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-top: 420px;
+  object-fit: contain;
+  font-family: Arial, Helvetica, sans-serif;
+}
+div.headstaff-img2 {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8) 30%,
+      /* rgba(0, 0, 0, 0.4) 55%, */
+      rgba(0, 0, 0, 0.2) 75%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    url("severus-snape.jpg");
+  /* url('hero-img1.png.png'); */
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  padding-top: 420px;
+  object-fit: contain;
+  font-family: Arial, Helvetica, sans-serif;
+}
+div.headstaff-img3 {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8) 30%,
+      /* rgba(0, 0, 0, 0.4) 55%, */
+      rgba(0, 0, 0, 0.2) 75%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    url("minerva-mcgognal.jpg");
+  /* url('hero-img1.png.png'); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-top: 420px;
+  object-fit: contain;
+  font-family: Arial, Helvetica, sans-serif;
+}
+div.headstaff-img1 p.Header,
+div.headstaff-img2 p.Header,
+div.headstaff-img3 p.Header {
+  font-size: 30px;
+  line-height: 50px;
+}
+div.headstaff-img1 p.Body,
+div.headstaff-img2 p.Body,
+div.headstaff-img3 p.Body {
+  font-size: 20px;
+  line-height: 25px;
+  margin-left: 45px;
 }
