@@ -11,7 +11,7 @@
     <!-- NAVBAR -->
     <nav class="navbar p-0">
         <div class="Nav py-0 px-1">
-            <a class="navbar-brand" href="index.php"><img class="main-logo" src="hogwarts-logo-img.png"></a>
+            <a class="navbar-brand" href="index.php"><img class="main-logo" src="images/hogwarts-logo-img.png"></a>
             <a class="navbar-brand" href="login.php"><button class="btn btn-outline-light">Login</button></a>
         </div>
     </nav>
@@ -64,7 +64,7 @@
     <div class="container-fluid About-Section">
         <section class="About-Us row" id="About-Us">
             <div class="About-Us-img col-lg-6 col-md-12 col-sm-12">
-                <img src="about-hogwarts-img.png" alt="About Hogwarts Image" class="">
+                <img src="images/about-hogwarts-img.png" alt="About Hogwarts Image" class="">
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <h1 class="About-Us-header fw-bold text-light text-center mt-2 mb-5">ABOUT US</h1>
@@ -97,25 +97,25 @@
                 <h1 class="text-center text-light mt-5 mb-4">HOGWARTS HOUSES</h1>
             </div>
             <div class="Card col-lg-5 col-md-6 col-sm-6 card mx-auto mb-5">
-                <img src="Gryffindor.png" class="card-img-top" alt="..." style="width:100%;aspect-ratio:2/2;">
+                <img src="images/Gryffindor.png" class="card-img-top" alt="..." style="width:100%;aspect-ratio:2/2;">
                 <div class="card-body">
                     <h5 class="card-title text-center h3" style="text-transform:uppercase;">Gryffindor</h5>
                 </div>
             </div>
             <div class="Card col-lg-5 col-md-6 col-sm-6 card mx-auto mb-5">
-                <img src="Hufflepuff.png" class="card-img-top" alt="..." style="width:100%;aspect-ratio:2/2;">
+                <img src="images/Hufflepuff.png" class="card-img-top" alt="..." style="width:100%;aspect-ratio:2/2;">
                 <div class="card-body">
                     <h5 class="card-title text-center h3" style="text-transform:uppercase;">Hufflepuff</h5>
                 </div>
             </div>
             <div class="Card col-lg-5 col-md-6 col-sm-6 card mx-auto mb-5">
-                <img src="RavenClawCrest.png" class="card-img-top" alt="..." style="width:100%;aspect-ratio:2/2;">
+                <img src="images/RavenClawCrest.png" class="card-img-top" alt="..." style="width:100%;aspect-ratio:2/2;">
                 <div class="card-body">
                     <h5 class="card-title text-center h3" style="text-transform:uppercase;">RavenClaw Crest</h5>
                 </div>
             </div>
             <div class="Card col-lg-5 col-md-6 col-sm-6 card mx-auto mb-5">
-                <img src="Slytherin.png" class="card-img-top" alt="..." style="width:100%;aspect-ratio:2/2;">
+                <img src="images/Slytherin.png" class="card-img-top" alt="..." style="width:100%;aspect-ratio:2/2;">
                 <div class="card-body">
                     <h5 class="card-title text-center h3" style="text-transform:uppercase;">Slytherin</h5>
                 </div>
@@ -161,9 +161,9 @@
                 </p>
             </div>
             <div class="Management-img col-lg-6 col-md-12 col-sm-12">
-                <img src="hogwarts-management-img1.jpg" alt="Hogwarts Management Image 1">
-                <img src="hogwarts-management-img2.jpg" alt="Hogwarts Management Image 2">
-                <img src="hogwarts-management-img3.jpg" alt="Hogwarts Management Image 3">
+                <img src="images/hogwarts-management-img1.jpg" alt="Hogwarts Management Image 1">
+                <img src="images/hogwarts-management-img2.jpg" alt="Hogwarts Management Image 2">
+                <img src="images/hogwarts-management-img3.jpg" alt="Hogwarts Management Image 3">
             </div>
         </section>
     </div>
@@ -232,10 +232,10 @@
         </button>
     </div>
     <!-- FREUENTLY ASKED QUESTIONS -->
-    <div class="accordion" id="accordionPanelsStayOpenExample">
+    <div class="accordion" id="accordionPanelsStayOpenExample" style="width:70rem;margin:auto;font-size:25px">
         <div class="accordion-item">
             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                <button class="accordion-button fs-4" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                     aria-controls="panelsStayOpen-collapseOne">
                     What is Hogwarts?
@@ -244,13 +244,13 @@
             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
                 aria-labelledby="panelsStayOpen-headingOne">
                 <div class="accordion-body">
-                    <strong>Hogwarts School of Witchcraft and Wizardry is a magical school where young witches and wizards are trained in the art of magic. Students learn various magical subjects while living and growing together within the castle.
+                    <strong>Hogwarts School of Witchcraft and Wizardry is a magical school where young witches and wizards are trained in the art of magic. Students learn various magical subjects while living and growing together within the castle.</strong>
                 </div>
             </div>
         </div>
         <div class="accordion-item">
             <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
                     aria-controls="panelsStayOpen-collapseTwo">
                     What are the four Hogwarts Houses?
@@ -259,13 +259,13 @@
             <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
                 aria-labelledby="panelsStayOpen-headingTwo">
                 <div class="accordion-body">
-                    <strong>Hogwarts is divided into four houses: Gryffindor, Slytherin, Ravenclaw, and Hufflepuff. Each house represents different qualities and traditions, giving students a unique identity throughout their time at Hogwarts.
+                    <strong>Hogwarts is divided into four houses: Gryffindor, Slytherin, Ravenclaw, and Hufflepuff. Each house represents different qualities and traditions, giving students a unique identity throughout their time at Hogwarts.</strong>
                 </div>
             </div>
         </div>
         <div class="accordion-item">
             <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
                     aria-controls="panelsStayOpen-collapseThree">
                     What is the Student Management System?
@@ -274,7 +274,37 @@
             <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
                 aria-labelledby="panelsStayOpen-headingThree">
                 <div class="accordion-body">
-                    <strong>The Student Management System is a web-based application created to make managing student information easier and more organized. It provides a structured way to maintain student records in one centralized system.
+                    <strong>The Student Management System is a web-based application created to make managing student information easier and more organized. It provides a structured way to maintain student records in one centralized system.</strong>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseFour">
+                    What can I do with the Student Management System?
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+                aria-labelledby="panelsStayOpen-headingFour">
+                <div class="accordion-body">
+                    <strong>The system provides CRUD functionality for managing student records. You can add new students, view existing information, update records when required, and delete records that are no longer needed.</strong>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+                <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseFive">
+                    Is the Student Management System easy to use?
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
+                aria-labelledby="panelsStayOpen-headingFive">
+                <div class="accordion-body">
+                    <strong>Yes, the system is designed with a clean and straightforward interface. Its simple layout and essential features make it easy to navigate and manage student information without unnecessary complexity.</strong>
                 </div>
             </div>
         </div>

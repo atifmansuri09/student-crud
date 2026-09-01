@@ -40,8 +40,7 @@ div.hero-img1 {
       rgba(0, 0, 0, 0.2) 75%,
       rgba(0, 0, 0, 0.1) 100%
     ),
-    url("hero-img1.png");
-  /* url('hero-img1.png.png'); */
+    url("images/hero-img1.png");
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
@@ -61,8 +60,7 @@ div.hero-img2 {
       rgba(0, 0, 0, 0.2) 75%,
       rgba(0, 0, 0, 0.1) 100%
     ),
-    url("hero-img2.png");
-  /* url('hero-img1.png.png'); */
+    url("images/hero-img2.png");
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
@@ -82,8 +80,7 @@ div.hero-img3 {
       rgba(0, 0, 0, 0.2) 75%,
       rgba(0, 0, 0, 0.1) 100%
     ),
-    url("hero-img3.png");
-  /* url('hero-img1.png.png'); */
+    url("images/hero-img3.png");
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
@@ -165,12 +162,10 @@ div.headstaff-img1 {
     linear-gradient(
       to top,
       rgba(0, 0, 0, 0.8) 30%,
-      /* rgba(0, 0, 0, 0.4) 55%, */
-      rgba(0, 0, 0, 0.2) 75%,
+      /* rgba(0, 0, 0, 0.4) 55%, */ rgba(0, 0, 0, 0.2) 75%,
       rgba(0, 0, 0, 0.1) 100%
     ),
-    url("albus-dumbledore.jpg");
-  /* url('hero-img1.png.png'); */
+    url("images/albus-dumbledore.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -186,12 +181,10 @@ div.headstaff-img2 {
     linear-gradient(
       to top,
       rgba(0, 0, 0, 0.8) 30%,
-      /* rgba(0, 0, 0, 0.4) 55%, */
-      rgba(0, 0, 0, 0.2) 75%,
+      /* rgba(0, 0, 0, 0.4) 55%, */ rgba(0, 0, 0, 0.2) 75%,
       rgba(0, 0, 0, 0.1) 100%
     ),
-    url("severus-snape.jpg");
-  /* url('hero-img1.png.png'); */
+    url("images/severus-snape.jpg");
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
@@ -207,12 +200,10 @@ div.headstaff-img3 {
     linear-gradient(
       to top,
       rgba(0, 0, 0, 0.8) 30%,
-      /* rgba(0, 0, 0, 0.4) 55%, */
-      rgba(0, 0, 0, 0.2) 75%,
+      /* rgba(0, 0, 0, 0.4) 55%, */ rgba(0, 0, 0, 0.2) 75%,
       rgba(0, 0, 0, 0.1) 100%
     ),
-    url("minerva-mcgognal.jpg");
-  /* url('hero-img1.png.png'); */
+    url("images/minerva-mcgognal.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -233,3 +224,5 @@ div.headstaff-img3 p.Body {
   line-height: 25px;
   margin-left: 45px;
 }
+
+/* FREQUENTLY ASKED QUESTIONS */
