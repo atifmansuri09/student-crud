@@ -1,9 +1,14 @@
 /* ADD STUDENT DETAILS  */
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
 form.add-student{
     width:70%;
     margin:auto;
     margin-top:2rem;
-    background-color: lightblue;
+    /* background-color: lightblue; */
 }
 form.add-student input, form.add-student select,
 #validationCustom03{
@@ -14,4 +19,7 @@ form.add-student label{
     margin-left:6.7rem;
     font-size: large;
     font-weight:600;
+}
+::-webkit-scrollbar{
+    display: none;
 }
