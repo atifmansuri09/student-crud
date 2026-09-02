@@ -109,7 +109,8 @@
                 </div>
             </div>
             <div class="Card col-lg-5 col-md-6 col-sm-6 card mx-auto mb-5">
-                <img src="images/RavenClawCrest.png" class="card-img-top" alt="..." style="width:100%;aspect-ratio:2/2;">
+                <img src="images/RavenClawCrest.png" class="card-img-top" alt="..."
+                    style="width:100%;aspect-ratio:2/2;">
                 <div class="card-body">
                     <h5 class="card-title text-center h3" style="text-transform:uppercase;">RavenClaw Crest</h5>
                 </div>
@@ -232,83 +233,111 @@
         </button>
     </div>
     <!-- FREUENTLY ASKED QUESTIONS -->
-    <div class="accordion" id="accordionPanelsStayOpenExample" style="width:70rem;margin:auto;font-size:25px">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                <button class="accordion-button fs-4" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                    aria-controls="panelsStayOpen-collapseOne">
-                    What is Hogwarts?
-                </button>
-            </h2>
-            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                aria-labelledby="panelsStayOpen-headingOne">
-                <div class="accordion-body">
-                    <strong>Hogwarts School of Witchcraft and Wizardry is a magical school where young witches and wizards are trained in the art of magic. Students learn various magical subjects while living and growing together within the castle.</strong>
+     <h1 class="text-center text-light mt-5 mb-5">FAQs</h1>
+    <div class="accordion mt-5" id="accordionPanelsStayOpenExample">
+        <div class="container">
+            <div class="row">
+                <div class="accordion-item col-lg-12 col-sm-6">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                        <button class="accordion-button fs-4" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseOne">
+                            What is Hogwarts?
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                        aria-labelledby="panelsStayOpen-headingOne">
+                        <div class="accordion-body">
+                            <strong class="fs-3">Hogwarts School of Witchcraft and Wizardry is a magical school where
+                                young
+                                witches and
+                                wizards are trained in the art of magic. Students learn various magical subjects while
+                                living and growing together within the castle.</strong>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                    aria-controls="panelsStayOpen-collapseTwo">
-                    What are the four Hogwarts Houses?
-                </button>
-            </h2>
-            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
-                aria-labelledby="panelsStayOpen-headingTwo">
-                <div class="accordion-body">
-                    <strong>Hogwarts is divided into four houses: Gryffindor, Slytherin, Ravenclaw, and Hufflepuff. Each house represents different qualities and traditions, giving students a unique identity throughout their time at Hogwarts.</strong>
+                <div class="accordion-item col-lg-12 col-sm-6">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                        <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseTwo">
+                            What are the four Hogwarts Houses?
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingTwo">
+                        <div class="accordion-body">
+                            <strong class="fs-3">Hogwarts is divided into four houses: Gryffindor, Slytherin, Ravenclaw,
+                                and
+                                Hufflepuff.
+                                Each house represents different qualities and traditions, giving students a unique
+                                identity
+                                throughout their time at Hogwarts.</strong>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                    aria-controls="panelsStayOpen-collapseThree">
-                    What is the Student Management System?
-                </button>
-            </h2>
-            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
-                aria-labelledby="panelsStayOpen-headingThree">
-                <div class="accordion-body">
-                    <strong>The Student Management System is a web-based application created to make managing student information easier and more organized. It provides a structured way to maintain student records in one centralized system.</strong>
+                <div class="accordion-item col-lg-12 col-sm-6">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                        <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseThree">
+                            What is the Student Management System?
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingThree">
+                        <div class="accordion-body">
+                            <strong class="fs-3">The Student Management System is a web-based application created to
+                                make
+                                managing
+                                student information easier and more organized. It provides a structured way to maintain
+                                student records in one centralized system.</strong>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
-                <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
-                    aria-controls="panelsStayOpen-collapseFour">
-                    What can I do with the Student Management System?
-                </button>
-            </h2>
-            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
-                aria-labelledby="panelsStayOpen-headingFour">
-                <div class="accordion-body">
-                    <strong>The system provides CRUD functionality for managing student records. You can add new students, view existing information, update records when required, and delete records that are no longer needed.</strong>
+                <div class="accordion-item col-lg-12 col-sm-6">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                        <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseFour">
+                            What can I do with the Student Management System?
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingFour">
+                        <div class="accordion-body">
+                            <strong class="fs-3">The system provides CRUD functionality for managing student records.
+                                You
+                                can add new
+                                students, view existing information, update records when required, and delete records
+                                that
+                                are no longer needed.</strong>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingFive">
-                <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
-                    aria-controls="panelsStayOpen-collapseFive">
-                    Is the Student Management System easy to use?
-                </button>
-            </h2>
-            <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
-                aria-labelledby="panelsStayOpen-headingFive">
-                <div class="accordion-body">
-                    <strong>Yes, the system is designed with a clean and straightforward interface. Its simple layout and essential features make it easy to navigate and manage student information without unnecessary complexity.</strong>
+                <div class="accordion-item col-lg-12 col-sm-6">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+                        <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseFive">
+                            Is the Student Management System easy to use?
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingFive">
+                        <div class="accordion-body">
+                            <strong class="fs-3">Yes, the system is designed with a clean and straightforward interface.
+                                Its
+                                simple
+                                layout and essential features make it easy to navigate and manage student information
+                                without unnecessary complexity.</strong>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
     <script src="bootstrap.bundle.min.js"></script>
 </body>
 

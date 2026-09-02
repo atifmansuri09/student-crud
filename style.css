@@ -4,6 +4,10 @@
   padding: 0%;
 }
 
+::-webkit-scrollbar{
+  display:none;
+}
+
 body {
   background-color: #02091c;
 }
