@@ -1,26 +1,65 @@
+:root {
+  /* DARK COFFEE */
+  --espresso: #13100b;
+  --dark-coffee: #241810;
+  --coffee: #352015;
+  --chocolate: #4a2d1b;
+
+  /* GOLD */
+  --gold: #b08a3c;
+  --soft-gold: #c9a85c;
+  --muted-gold: #9c7835;
+
+  /* PARCHMENT */
+  --parchment: #fcf3e6;
+  --cream: #f7ecde;
+  --light-cream: #f3e5d2;
+  --border: #e7d7bf;
+
+  /* TEXT */
+  --text-dark: #241810;
+  --text-brown: #4b3525;
+  --text-muted: #816f57;
+  --text-light: #f8f0e3;
+
+  /* SHADOW */
+  --shadow: rgba(36, 24, 16, 0.18);
+}
+
 * {
   box-sizing: border-box;
   margin: 0%;
   padding: 0%;
 }
 
-::-webkit-scrollbar{
-  display:none;
+::-webkit-scrollbar {
+  display: none;
+}
+
+h1 {
+  color: var(--text-dark);
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-family: Georgia, "Times New Roman", serif;
 }
 
 body {
-  background-color: #02091c;
+  /* color: var(--text-dark); */
+  background-color: var(--dark-coffee);
 }
+
 /* NAVBAR */
 
 nav.navbar {
-  background-color: #050f2d9c;
-  /* background-color: rgb(228, 225, 225); */
+  background: var(--espresso);
+  border-bottom: 1px solid rgba(201, 168, 92, 0.45);
 }
 
 nav.navbar a img.main-logo {
   height: 60px;
-  border: 1px dashed white;
+  width: 60px;
+  background-color: var(--text-light);
   border-radius: 50%;
 }
 
@@ -31,11 +70,40 @@ nav div.Nav {
   justify-content: space-between;
 }
 
-/* HERO SECTION */
-div.hero-img1 {
+nav.navbar .btn {
+  color: var(--soft-gold);
+  border: 1px solid var(--gold);
+  background-color: transparent;
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.5px;
+  padding: 8px 22px;
+  transition: all 0.25s ease;
+}
+
+nav.navbar .btn:hover {
+  color: var(--dark-coffee);
+  background-color: var(--gold);
+  border-color: var(--soft-gold);
+  box-shadow: 0 4px 15px rgba(201, 168, 92, 0.2);
+}
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+
+div.hero-img1,
+div.hero-img2,
+div.hero-img3 {
   width: 100%;
   height: 600px;
   position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 320px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+div.hero-img1 {
   background-image:
     linear-gradient(
       to right,
@@ -45,17 +113,9 @@ div.hero-img1 {
       rgba(0, 0, 0, 0.1) 100%
     ),
     url("images/hero-img1.png");
-  background-repeat: no-repeat;
   background-position: top;
-  background-size: cover;
-  padding-top: 320px;
-  object-fit: contain;
-  font-family: Arial, Helvetica, sans-serif;
 }
 div.hero-img2 {
-  width: 100%;
-  height: 600px;
-  position: relative;
   background-image:
     linear-gradient(
       to right,
@@ -65,17 +125,9 @@ div.hero-img2 {
       rgba(0, 0, 0, 0.1) 100%
     ),
     url("images/hero-img2.png");
-  background-repeat: no-repeat;
   background-position: top;
-  background-size: cover;
-  padding-top: 320px;
-  object-fit: contain;
-  font-family: Arial, Helvetica, sans-serif;
 }
 div.hero-img3 {
-  width: 100%;
-  height: 600px;
-  position: relative;
   background-image:
     linear-gradient(
       to right,
@@ -85,12 +137,7 @@ div.hero-img3 {
       rgba(0, 0, 0, 0.1) 100%
     ),
     url("images/hero-img3.png");
-  background-repeat: no-repeat;
   background-position: top;
-  background-size: cover;
-  padding-top: 320px;
-  object-fit: contain;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 div.hero-img1 p.Header,
@@ -98,66 +145,148 @@ div.hero-img2 p.Header,
 div.hero-img3 p.Header {
   font-size: 50px;
   line-height: 50px;
+  color: var(--text-light) !important;
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 1px;
 }
+
 div.hero-img1 p.Body,
 div.hero-img2 p.Body,
 div.hero-img3 p.Body {
   font-size: 25px;
   line-height: 35px;
   margin-left: 45px;
+  color: var(--text-light) !important;
+  font-family: Georgia, "Times New Roman", serif;
 }
 
 span.Carousel-Btn {
   width: 10%;
   opacity: 0;
 }
-/* 
-button.hero {
-  width: 5%;
-} */
 
 /* ABOUT US SECTION */
+
+div.About-Section {
+
+  background: radial-gradient(
+    circle at top,
+    var(--light-cream),
+    var(--border) 65%
+  );
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid rgba(201, 168, 92, 0.3);
+}
+
 section.About-Us,
 div.About-Section {
-  margin-top: 70px;
+  margin-top: 1%;
+}
+
+p.About-Us-para {
+  color: var(--text-dark);
+  letter-spacing: 1px;
+  line-height: 40px;
+  font-size: 25.2px;
+}
+
+div.About-Us-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 div.About-Us-img img {
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 20px rgba(0, 0, 0, 0.35));
 }
 
 /* HOGWARTS HOUSES (CARDS) */
 
+div.House-section {
+  background: linear-gradient(
+    135deg,
+    var(--text-muted) 0%,
+    var(--border) 35%,
+    var(--text-muted) 100%
+  );
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid rgba(201, 168, 92, 0.3);
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+}
+
+div.card-section div.Card:hover div.card-body {
+  transform: translateY(-100%);
+  color: var(--text-light);
+  font-weight: bold;
+}
+
+div.card-section div.Card div.card-body {
+  transition: transform 0.3s ease-in-out;
+  color: var(--text-dark);
+  font-family: "Times New Roman", Times, serif;
+  text-shadow: 0 0 10px var(--gold);
+  letter-spacing: 1px;
+}
+
+div.card-section div.Card:hover div.card-body h5 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+h1.Section-heading {
+  color: var(--text-dark);
+}
+
 div.card-section div.Card {
   width: 20rem;
-  transform: scale(0.9);
-  background-color: rgb(199, 196, 196);
-  /* border: 1px solid #050f2d9c; */
+  transform: scale(1);
+  background-color: transparent;
 }
 
 div.card-section div.Card:hover {
-  /* border:1px solid whitesmoke; */
-  transform: scale(1);
-  overflow: hidden;
-  background-color: #09194a9c;
-  transition: 0.3s ease-out;
-  color: white;
-  box-shadow: 0px 0px 14px 0px whitesmoke;
+  transform: scale(0.9);
+  transition: 0.3s ease-in-out;
   border-radius: 25px;
 }
+
 div.card-section div.Card:hover img {
-  transform: scale(1.1);
+  transform: scale(1.3);
   transition: 0.2s ease-out;
 }
 
 /* MANAGEMENT SYSTEM */
 
-div.Management-Section div.Management-img img {
-  width: 100%;
-  aspect-ratio: 3/1.4;
+div.Management-Section {
+  background: radial-gradient(
+    circle at top,
+    var(--light-cream),
+    var(--border) 65%
+  );
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid rgba(201, 168, 92, 0.3);
 }
+
+section.Management p.About-Us-para {
+  color: var(--text-dark);
+}
+
+.management-slider .carousel-item img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  object-position: center;
+}
+
 /* HEAD STAFF SECTION (IMAGE SLIDER) */
+
+h1.Head-Staff-header {
+  background-color: var(--border);
+}
+
 div.headstaff-img1 {
   width: 100%;
   height: 600px;
@@ -221,12 +350,122 @@ div.headstaff-img3 p.Header {
   font-size: 30px;
   line-height: 50px;
 }
+
+div.headstaff-img1 p.Sub-Header,
+div.headstaff-img2 p.Sub-Header,
+div.headstaff-img3 p.Sub-Header {
+  color: var(--soft-gold) !important;
+  letter-spacing: 1px;
+}
+
 div.headstaff-img1 p.Body,
 div.headstaff-img2 p.Body,
 div.headstaff-img3 p.Body {
   font-size: 20px;
   line-height: 25px;
   margin-left: 45px;
+  color: var(--text-light) !important;
 }
 
-/* FREQUENTLY ASKED QUESTIONS */
+/* =========================================================
+   FAQ SECTION
+   ========================================================= */
+
+div.FAQ-Section {
+  /* background-color: var(--parchment) !important; */
+  background: linear-gradient(
+    135deg,
+    var(--text-muted) 0%,
+    var(--border) 35%,
+    var(--text-muted) 100%
+  );
+}
+
+div.FAQ-Section h1 {
+  /* background-color: var(--parchment) !important; */
+  background: transparent;
+  color: var(--text-dark) !important;
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 2px;
+}
+
+/* ACCORDION */
+
+.accordion {
+  --bs-accordion-bg: var(--cream);
+  --bs-accordion-border-color: var(--border);
+  --bs-accordion-color: var(--text-brown);
+  --bs-accordion-btn-color: var(--text-dark);
+  --bs-accordion-btn-bg: var(--cream);
+  --bs-accordion-active-bg: var(--light-cream);
+  --bs-accordion-active-color: var(--text-dark);
+}
+
+/* ACCORDION ITEM */
+
+.accordion-item {
+  border: 1px solid var(--border);
+  margin-bottom: 10px;
+  border-radius: 5px !important;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(36, 24, 16, 0.06);
+}
+
+/* QUESTION */
+
+.accordion-button {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  color: var(--text-dark) !important;
+  background-color: var(--cream) !important;
+}
+
+/* QUESTION HOVER */
+
+.accordion-button:hover {
+  color: var(--chocolate) !important;
+  background-color: var(--light-cream) !important;
+}
+
+/* QUESTION OPEN */
+
+.accordion-button:not(.collapsed) {
+  color: var(--chocolate) !important;
+  background-color: var(--light-cream) !important;
+  box-shadow: none;
+}
+
+/* ACCORDION ICON */
+
+.accordion-button::after {
+  filter: sepia(1) saturate(1.5);
+}
+
+/* ANSWER */
+
+.accordion-body {
+  background-color: var(--parchment);
+  color: var(--text-brown);
+  border-top: 1px solid var(--border);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 30px;
+}
+
+.accordion-body strong {
+  color: var(--text-brown);
+  font-weight: 500;
+}
+
+/* =========================================================
+   GOLD DIVIDERS / DECORATIVE FEEL
+   ========================================================= */
+.About-Us-header::after,
+/* .Management-Section::after, */
+.Section-heading::after ,
+.FAQ-Sub-Section::before {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}

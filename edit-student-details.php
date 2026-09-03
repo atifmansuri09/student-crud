@@ -1,46 +1,9 @@
-<!-- BACKEND -->
+<!-- BACKENED -->
 <?php
 require "connection.php";
-$message = "";
-if (isset($_POST["submit"])) {
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $course = $_POST["course"];
-    $year = $_POST["classyear"];
-    $phonenumber = $_POST["phonenumber"];
-    $type = $_FILES["studentphoto"]["type"];
-    $size = $_FILES["studentphoto"]["size"];
-    $extension = ($type == "image/png") ? ".png" : ".jpg";
-    $studentphoto = time() . "_" . $name . $extension;
-    $temp = $_FILES["studentphoto"]["tmp_name"];
-
-    if (empty($name) || empty($email) || empty($course) || empty($year) || empty($phonenumber)) {
-        $message = "All Fields must be required!";
-    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $message = "Invalid Email!";
-    } else if (strlen($phonenumber) != 10) {
-        $message = "Phone Number must be of 10 digits!";
-    } else if ($type != "image/jpeg" && $type != "image/png") {
-        $message = "Only PNG or JPG Images Allowed!";
-    } else if ($size > 2097152) {
-        $message = "Maximum File Size is 2MB";
-    } else {
-        if (!file_exists("uploads")) {
-            mkdir("uploads", 0777, true);
-        }
-        move_uploaded_file($temp, "uploads/" . $studentphoto);
-        $stmt = mysqli_prepare($conn, "INSERT INTO students (name,email,course,classyear,phonenumber,photo)
-                VALUES (?,?,?,?,?,?);");
-        mysqli_stmt_bind_param($stmt, "ssssss", $name, $email, $course, $year, $phonenumber, $studentphoto);
-        $result = mysqli_stmt_execute($stmt); //Returns true or false
-        if ($result) {
-            $message = '<p class="text-success text-center">Student Added Successfully!</p>';
-        } else {
-            $message = "Failed to Add Student! Error : " . mysqli_error($conn);
-        }
-
-    }
-}
+$id = $_GET["id"];
+$result = mysqli_query($conn, "SELECT * FROM students WHERE id=$id") or die(mysqli_error($conn));
+$row = mysqli_fetch_assoc($result);
 ?>
 <!-- FRONTENED -->
 <!DOCTYPE html>
@@ -54,20 +17,23 @@ if (isset($_POST["submit"])) {
 
 <body>
     <div class="addstudentpage">
-        <!-- <div class="row align-items-center">
+        <div class="row align-items-center">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <img class="img-fluid d-block mx-auto" src="images/add-student-img.jpeg" style="" width="15%"
                     alt="Add student">
             </div>
-        </div> -->
+        </div>
         <p class="message text-center">
             <?php echo $message; ?>
         </p>
         <form class="add-student row g-3 needs-validation" novalidate method="post" enctype="multipart/form-data">
             <div class="col-lg-12 col-md-12 col-sm-12">
+                <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
                 <label for="validationCustom01" class="form-label">Name</label>
                 <input type="text" class="form-control" id="validationCustom01" name="name"
-                    placeholder="Enter your full name..." required>
+                    placeholder="Enter your full name..." value="<?php echo $row["name"]; ?>" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -78,7 +44,7 @@ if (isset($_POST["submit"])) {
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <label for="validationCustom02" class="form-label">Email</label>
                 <input type="text" class="form-control" name="email" placeholder="Enter your Email..."
-                    id="validationCustom02" required>
+                    value="<?php echo $row["email"]; ?>" id="validationCustom02" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -89,14 +55,15 @@ if (isset($_POST["submit"])) {
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <label for="validationCustom03" class="form-label">Course</label>
                 <input type="text" class="form-control" name="course" placeholder="Enter your Course..."
-                    id="validationCustom03" required>
+                    value="<?php echo $row["course"]; ?>" id="validationCustom03" required>
                 <div class="invalid-feedback">
                     Please provide a valid Course.
                 </div>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <label for="validationCustom04" class="form-label">Academic Year</label>
-                <select class="form-select" id="validationCustom04" name="classyear" required>
+                <select class="form-select" id="validationCustom04" name="classyear"
+                    value="<?php echo $row["classyear"]; ?>">
                     <option selected disabled value="">Select your Year</option>
                     <option value="FY">FY</option>
                     <option value="TY">TY</option>
@@ -109,22 +76,23 @@ if (isset($_POST["submit"])) {
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <label for="validationCustom05" class="form-label">Phone Number</label>
                 <input type="number" class="form-control" name="phonenumber" placeholder="Enter your Number..."
-                    id="validationCustom05" required>
+                    value="<?php echo $row["phonenumber"]; ?>" id="validationCustom05" required>
                 <div class="invalid-feedback">
                     Please provide a valid Phone Number.
                 </div>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <label for="" class="form-label">Upload your Photo</label>
-                <input type="file" name="studentphoto" accept="image/jpeg,image/png" class="form-control" required>
+                <input type="file" name="studentphoto" accept="image/jpeg,image/png" class="form-control"
+                    value="<?php echo $row["photo"]; ?>" required>
                 <div class="invalid-feedback">
                     Select an Image!
                 </div>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">
-                <button class="add-student-btn btn mt-2 mb-4" type="submit" name="submit">Submit
+                <button class="btn btn-outline-primary btn-lg mt-2 mb-4" type="submit" name="submit">Submit
                     form</button>
-                <button class="add-student-btn btn mt-2 mb-4 ms-5" type="reset" value="Reset"
+                <button class="btn btn-outline-secondary btn-lg mt-2 mb-4 ms-5" type="reset" value="Reset"
                     name="reset">Reset form</button>
             </div>
         </form>

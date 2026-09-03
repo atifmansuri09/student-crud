@@ -1,17 +1,71 @@
-/* ADD STUDENT DETAILS  */
+:root {
+  /* DARK COFFEE */
+  --espresso: #13100b;
+  --dark-coffee: #241810;
+  --coffee: #352015;
+  --chocolate: #4a2d1b;
+
+  /* GOLD */
+  --gold: #b08a3c;
+  --soft-gold: #c9a85c;
+  --muted-gold: #9c7835;
+
+  /* PARCHMENT */
+  --parchment: #fcf3e6;
+  --cream: #f7ecde;
+  --light-cream: #f3e5d2;
+  --border: #e7d7bf;
+
+  /* TEXT */
+  --text-dark: #241810;
+  --text-brown: #4b3525;
+  --text-muted: #816f57;
+  --text-light: #f8f0e3;
+
+  /* SHADOW */
+  --shadow: rgba(36, 24, 16, 0.18);
+}
+
 * {
+  box-sizing: border-box;
   margin: 0%;
   padding: 0%;
-  box-sizing: border-box;
 }
-body{
-  background-color: rgba(20, 34, 71,1);
+
+::-webkit-scrollbar {
+  display: none;
 }
+
+body {
+  /* background-color: var(--light-cream); */
+   /* background: linear-gradient(
+    135deg,
+    var(--coffee) 0%,
+    var(--chocolate) 35%,
+    var(--dark-coffee) 100%
+  ); */
+}
+
+/* ADD STUDENT DETAILS  */
+
+div.addstudentpage {
+  border: 1px solid var(--border);
+  border-radius: 70px;
+  background: linear-gradient(
+    135deg,
+    var(--parchment) 0%,
+    var(--cream) 35%,
+    var(--parchment) 100%
+  );
+  color:var(--text-dark);
+  width: 50%;
+  margin: auto;
+}
+
 form.add-student {
-  width: 90%;
+  width: 100%;
   margin: auto;
   margin-top: 2rem;
-  /* background-color: lightblue; */
 }
 form.add-student input,
 form.add-student select,
@@ -49,15 +103,22 @@ p.message {
 }
 
 div.invalid-feedback,
-div.valid-feedback{
-    margin-left:10%;
+div.valid-feedback {
+  margin-left: 10%;
 }
 
-div.addstudentpage{
-  /* border: 2px solid black; */
-  background-color: rgba(14, 26, 59, 0.6);
-  /* background-color: darkblue; */
-  color:white;
-  width:80%;
-  margin:auto;
+button.add-student-btn {
+  background-color: var(--chocolate);
+  color: var(--text-light);
+  border: 1px solid var(--muted-gold);
+  border-radius: 10px;
+  width: 30%;
 }
+
+button.add-student-btn:hover{
+  background-color: var(--espresso);
+  color: var(--text-light);
+  border: 1px solid var(--muted-gold);
+}
+
+/* VIEW STUDENT DETAILS */
