@@ -41,37 +41,63 @@ $result = mysqli_query($conn, $sql);
 <html>
 
 <head>
-    <title>Student Management System</title>
+    <title>View Student Table</title>
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="adminstyle.css">
+    <style>
+        body {
+
+            background: linear-gradient(to right,
+                    var(--text-brown) 0%,
+                    var(--parchment) 25%,
+                    var(--cream) 50%,
+                    var(--parchment) 75%,
+                    var(--text-brown) 100%);
+        }
+    </style>
 </head>
 
-<body class="bg-light">
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light mb-5">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.php" target="_blank"><img class="main-logo"
+                    src="images/hogwarts-logo-img.png"></a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link me-3 ms-2 btn" href="Home" target="_blank">Home</a>
+                    <a class="nav-link me-3 btn" href="add-student-details.php" target="_blank">Add Student</a>
+                    <a class="nav-link me-3 btn active" href="view-student-details.php" target="_blank">View
+                        Students</a>
+                    <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+                </div>
+            </div>
+        </div>
+    </nav>
     <div class="container mt-5">
         <div class="card shadow">
-            <div class="card-header bg-primary text-white">
-                <h3 class="mb-0">Student Management System </h3>
+            <div class="card-header">
+                <h3 class="mb-0 text-center">Hogwarts Students </h3>
             </div>
             <div class="card-body>">
                 <div class="row mb-3">
                     <div class="col-md-6 pt-4">
                         <form method="GET">
                             <div class="input-group">
-                                <input type="text" name="search" class="form-control" placeholder="Search Student...."
+                                <input type="text" name="search" class="form-control ms-4" placeholder="Search Student...."
                                     value="<?php echo $search; ?>">
-                                <button class="btn btn-primary"> Search </button>
+                                <button class="btn btn-outline-light"> Search </button>
                             </div>
                         </form>
                     </div>
                     <div class="col-md-6 text-end pt-4 pe-4">
-                        <a href="view.php?search=<?php echo $search; ?> &sort=asc" class="btn btn-success">A-Z</a>
-                        <a href="view.php? search=<?php echo $search; ?> &sort=desc" class="btn btn-warning">Z-A</a>
-                        <a href="form.php" class="btn btn-primary">Add Student </a>
+                        <a href="view-student-details.php?search=<?php echo $search; ?> &sort=asc" class="btn btn-outline-light">A-Z</a>
+                        <a href="view-student-details.php? search=<?php echo $search; ?> &sort=desc" class="btn btn-outline-light ms-3 me-1">Z-A</a>
+                        <a href="add-student-details.php" class="add-btn btn">+Add Student </a>
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-hover table-striped align-middle">
-                        <thead class="table-dark">
+                    <table class="table table-hover table-striped align-middle">
+                        <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
@@ -96,20 +122,24 @@ $result = mysqli_query($conn, $sql);
                                         <td><?php echo $row["course"]; ?></td>
                                         <td><?php echo $row["classyear"]; ?></td>
                                         <td><?php echo $row["phonenumber"]; ?></td>
-                                        <td><img src="uploads/<?php echo $row["photo"]; ?>" alt="" width="100" height="100" class="rounded-circle object-fit-cover object-position-center" style="object-position: center;"></td>
-                                        <td>
-                                            <a href="edit.php?id= <?php echo $row["id"]; ?>"
-                                                class="btn btn-primary btn-sm">Edit</a>
+                                        <td><img src="uploads/<?php echo $row["photo"]; ?>" alt="" width="100" height="100"
+                                                class="rounded-circle object-fit-cover object-position-center"
+                                                style="object-position: center;">
                                         </td>
                                         <td>
-                                            <a href="delete.php?id = <?php echo $row["id"]; ?>" class="btn btn-danger btn-sm"
+                                            <a href="edit-student-details.php?id=<?php echo $row["id"]; ?>"
+                                                class="btn btn-md btn-primary">Edit</a>
+                                        </td>
+                                        <td>
+                                            <a href="delete-student-details.php?id=<?php echo $row["id"]; ?>"
+                                                class="btn btn-md btn-danger"
                                                 onclick="return confirm ('Delete this Student?')">Delete</a>
                                         </td>
                                     </tr>
                                 <?php }
                             } else { ?>
                                 <tr>
-                                    <td colspan="7" class="text-center text-danger">No Records Found</td>
+                                    <td colspan="7" class="text-center">No Records Found</td>
                                 </tr>
                             <?php } ?>
                         </tbody>
@@ -131,7 +161,7 @@ $result = mysqli_query($conn, $sql);
                     </ul>
                 </nav>
                 <div class="text-center">
-                    <p class="text-muted">
+                    <p class="text-light fs-5">
                         Total Students: <strong><?php echo $totalRecords; ?> </strong>
                     </p>
                 </div>

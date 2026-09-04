@@ -268,7 +268,7 @@
         <h1 class="text-center mt-3 pt-4">FAQs</h1>
         <div class="FAQ-Sub-Section row px-5">
             <div class="accordion p-5" id="accordionPanelsStayOpenExample">
-                <div class="accordion-item col-lg-12 col-sm-6 p-0">
+                <div class="accordion-item col-lg-12 col-sm-12 p-0">
                     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                         <button class="accordion-button fs-4" type="button" data-bs-toggle="collapse"
                             data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"

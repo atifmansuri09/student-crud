@@ -1,28 +1,101 @@
 <!-- BACKENED -->
 <?php
+// FETCHED VALUE FROM DATABASE TO EDIT
+$message = "";
 require "connection.php";
 $id = $_GET["id"];
-$result = mysqli_query($conn, "SELECT * FROM students WHERE id=$id") or die(mysqli_error($conn));
+$stmt = mysqli_prepare($conn, "SELECT * FROM students WHERE id = ?");
+mysqli_stmt_bind_param($stmt, "i", $id);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
 $row = mysqli_fetch_assoc($result);
+
+
+// EDITING IT TO DATABASE
+
+if (isset($_POST["edit"])) {
+    $id = $_POST["id"];
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $course = $_POST["course"];
+    $year = $_POST["classyear"];
+    $phonenumber = $_POST["phonenumber"];
+    $type = $_FILES["studentphoto"]["type"];
+    $size = $_FILES["studentphoto"]["size"];
+    $extension = ($type == "image/png") ? ".png" : ".jpg";
+    $studentphoto = time() . "_" . $name . $extension;
+    $temp = $_FILES["studentphoto"]["tmp_name"];
+
+    if (empty($name) || empty($email) || empty($course) || empty($year) || empty($phonenumber)) {
+        $message = "All Fields must be required!";
+    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $message = "Invalid Email!";
+    } else if (strlen($phonenumber) != 10) {
+        $message = "Phone Number must be of 10 digits!";
+    } else if ($type != "image/jpeg" && $type != "image/png") {
+        $message = "Only PNG or JPG Images Allowed!";
+    } else if ($size > 2097152) {
+        $message = "Maximum File Size is 2MB";
+    } else {
+        if (!file_exists("uploads")) {
+            mkdir("uploads", 0777, true);
+        }
+        move_uploaded_file($temp, "uploads/" . $studentphoto);
+        // $stmt = mysqli_prepare($conn, "INSERT INTO students (name,email,course,classyear,phonenumber,photo)
+        //         VALUES (?,?,?,?,?,?);");
+        $stmt = mysqli_prepare($conn, "UPDATE students
+        SET name=?,email=?,course=?,classyear=?,phonenumber=?,photo=?
+        WHERE id = ?;");
+        mysqli_stmt_bind_param($stmt, "sssssss", $name, $email, $course, $year, $phonenumber, $studentphoto, $id);
+        $result = mysqli_stmt_execute($stmt); //Returns true or false
+        if ($result) {
+            header("Location:view-student-details.php");
+        } else {
+            $message = "Failed to Edit Student Details! Error : " . mysqli_error($conn);
+        }
+    }
+}
 ?>
 <!-- FRONTENED -->
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Add Student</title>
+    <title>Edit Student Details</title>
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="adminstyle.css">
+    <style>
+        body {
+            background: linear-gradient(135deg,
+                    var(--coffee) 0%,
+                    var(--cream) 35%,
+                    var(--coffee) 100%);
+        }
+    </style>
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light mb-5">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.php" target="_blank"><img class="main-logo"
+                    src="images/hogwarts-logo-img.png"></a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link me-3 ms-2 btn" href="Home" target="_blank">Home</a>
+                    <a class="nav-link me-3 btn" href="add-student-details.php" target="_blank">Add Student</a>
+                    <a class="nav-link me-3 btn" href="view-student-details.php" target="_blank">View Students</a>
+                    <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+                </div>
+            </div>
+        </div>
+    </nav>
     <div class="addstudentpage">
-        <div class="row align-items-center">
+        <!-- <div class="row align-items-center">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <img class="img-fluid d-block mx-auto" src="images/add-student-img.jpeg" style="" width="15%"
                     alt="Add student">
             </div>
-        </div>
+        </div> -->
         <p class="message text-center">
             <?php echo $message; ?>
         </p>
@@ -64,7 +137,7 @@ $row = mysqli_fetch_assoc($result);
                 <label for="validationCustom04" class="form-label">Academic Year</label>
                 <select class="form-select" id="validationCustom04" name="classyear"
                     value="<?php echo $row["classyear"]; ?>">
-                    <option selected disabled value="">Select your Year</option>
+                    <option disabled value="">Select your Year</option>
                     <option value="FY">FY</option>
                     <option value="TY">TY</option>
                     <option value="SY">SY</option>
@@ -90,7 +163,7 @@ $row = mysqli_fetch_assoc($result);
                 </div>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">
-                <button class="btn btn-outline-primary btn-lg mt-2 mb-4" type="submit" name="submit">Submit
+                <button class="btn btn-outline-primary btn-lg mt-2 mb-4" type="submit" name="edit">Submit
                     form</button>
                 <button class="btn btn-outline-secondary btn-lg mt-2 mb-4 ms-5" type="reset" value="Reset"
                     name="reset">Reset form</button>

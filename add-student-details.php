@@ -38,7 +38,6 @@ if (isset($_POST["submit"])) {
         } else {
             $message = "Failed to Add Student! Error : " . mysqli_error($conn);
         }
-
     }
 }
 ?>
@@ -50,14 +49,36 @@ if (isset($_POST["submit"])) {
     <title>Add Student</title>
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="adminstyle.css">
+    <style>
+        body {
+            background: linear-gradient(135deg,
+                    var(--coffee) 0%,
+                    var(--cream) 35%,
+                    var(--coffee) 100%);
+        }
+    </style>
+
 </head>
 
 <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light mb-5">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.php" target="_blank"><img class="main-logo" src="images/hogwarts-logo-img.png"></a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link me-3 ms-2 btn" href="Home" target="_blank">Home</a>
+                    <a class="nav-link me-3 active btn" href="add-student-details.php" target="_blank">Add Student</a>
+                    <a class="nav-link me-3 btn" href="view-student-details.php" target="_blank">View Students</a>
+                    <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+                </div>
+            </div>
+        </div>
+    </nav>
     <div class="addstudentpage">
         <!-- <div class="row align-items-center">
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <img class="img-fluid d-block mx-auto" src="images/add-student-img.jpeg" style="" width="15%"
-                    alt="Add student">
+                
             </div>
         </div> -->
         <p class="message text-center">
@@ -124,8 +145,8 @@ if (isset($_POST["submit"])) {
             <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">
                 <button class="add-student-btn btn mt-2 mb-4" type="submit" name="submit">Submit
                     form</button>
-                <button class="add-student-btn btn mt-2 mb-4 ms-5" type="reset" value="Reset"
-                    name="reset">Reset form</button>
+                <button class="add-student-btn btn mt-2 mb-4 ms-5" type="reset" value="Reset" name="reset">Reset
+                    form</button>
             </div>
         </form>
     </div>

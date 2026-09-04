@@ -36,14 +36,71 @@
   display: none;
 }
 
-body {
-  /* background-color: var(--light-cream); */
-   /* background: linear-gradient(
-    135deg,
-    var(--coffee) 0%,
-    var(--chocolate) 35%,
-    var(--dark-coffee) 100%
-  ); */
+/* NAVBAR */
+
+nav.navbar {
+  backdrop-filter: blur(15px);
+  font-size: 17px;
+  background: var(--parchment);
+  color: var(--text-dark);
+  border-bottom: 2px solid var(--muted-gold);
+}
+
+nav.navbar a img.main-logo {
+  height: 60px;
+  width: 60px;
+  background-color: var(--text-light);
+  border-radius: 50%;
+}
+
+nav div.Nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.navbar-nav a.nav-link {
+  position: relative;
+  color: var(--text-brown);
+}
+
+.navbar-nav a.btn.active {
+  text-shadow: 0px 0px 1px var(--text-dark);
+}
+
+.navbar-nav a.btn:hover {
+  text-shadow: 0px 0px 1px var(--text-dark);
+  transition: all 0.2s ease-in;
+}
+
+.navbar-nav:hover a.btn {
+  color: var(--text-brown);
+  transition: all 0.2s ease-in;
+  text-shadow: none;
+}
+
+.navbar-nav:hover a.btn.active::before {
+  display: none;
+}
+
+.navbar-nav a.btn::before {
+  position: absolute;
+  content: "";
+  bottom: 8px;
+  left: 0;
+  height: 1px;
+  background-color: var(--muted-gold);
+  box-shadow: 0px 0px 2px var(--muted-gold);
+  opacity: 0;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.navbar-nav a.btn:hover::before,
+.navbar-nav a.btn.active::before {
+  opacity: 1;
+  width: 100%;
 }
 
 /* ADD STUDENT DETAILS  */
@@ -51,13 +108,19 @@ body {
 div.addstudentpage {
   border: 1px solid var(--border);
   border-radius: 70px;
-  background: linear-gradient(
-    135deg,
-    var(--parchment) 0%,
-    var(--cream) 35%,
-    var(--parchment) 100%
-  );
-  color:var(--text-dark);
+  margin-top: 30vh;
+  /* background: rgba(218, 150, 56, 0.05); */
+  background: rgba(187, 117, 52, 0.25);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 8px 4px rgba(255, 255, 255, 0.4);
+  color: var(--text-dark);
   width: 50%;
   margin: auto;
 }
@@ -67,14 +130,15 @@ form.add-student {
   margin: auto;
   margin-top: 2rem;
 }
+
 form.add-student input,
 form.add-student select,
 #validationCustom03 {
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
 form.add-student label {
-  margin-left: 10%;
+  margin-left: 5%;
   font-size: large;
   font-weight: 600;
 }
@@ -104,7 +168,7 @@ p.message {
 
 div.invalid-feedback,
 div.valid-feedback {
-  margin-left: 10%;
+  margin-left: 5%;
 }
 
 button.add-student-btn {
@@ -115,10 +179,88 @@ button.add-student-btn {
   width: 30%;
 }
 
-button.add-student-btn:hover{
+button.add-student-btn:hover {
   background-color: var(--espresso);
   color: var(--text-light);
   border: 1px solid var(--muted-gold);
 }
 
 /* VIEW STUDENT DETAILS */
+
+div a.add-btn{
+  background-color: transparent;
+  color: var(--text-light);
+  letter-spacing: 1px;
+  text-shadow: 0px 0px 4px var(--gold);
+}
+
+div a.add-btn:hover{
+  color: var(--gold);
+  background-color: var(--parchment);
+  border: 1px solid var(--muted-gold);
+}
+
+div.card {
+  padding:0 2%;
+    background: linear-gradient(
+    to right,
+    var(--text-dark) 0%,
+    var(--text-brown) 35%,
+    /* var(--) 50%, */
+    var(--text-brown) 65%,
+    var(--text-dark) 100%
+  );
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid var(--muted-gold);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 var(--muted-gold),
+    inset 0 -1px 0 var(--muted-gold),
+    inset 0 0 8px 4px var(--muted-gold);
+  color: var(--text-dark);
+}
+
+div.card h3 {
+  color: var(--soft-gold);
+  text-shadow: 0px 0px 3px var(--text-dark);
+  padding: 10px 0px 2px 0px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  font-size: 32px;
+  text-transform: uppercase;
+  font-family: "Times New Roman", Times, serif;
+}
+div.table-responsive table.table thead th {
+  background-color: var(--text-dark);
+  color: var(--text-light);
+  letter-spacing: 1px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+div.table-responsive table.table tbody tr:hover{
+  text-shadow: 0px 0px 1px var(--text-dark);
+  letter-spacing: 0.1px;
+  transition: all 0.2s ease-in-out;
+  color:var(--text-dark);
+}
+
+div.table-responsive table.table tbody td,
+div.table-responsive table.table tbody tr:hover{
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(
+    to right,
+    var(--parchment) 0%,
+    /* var(--cream) 35%, */
+    var(--border) 100%
+  );
+  overflow: hidden;
+}
+
+div.table-responsive table.table tbody tr:hover img{
+  transform: scale(1.2);
+  transition: all 0.3s ease-in-out;
+}
