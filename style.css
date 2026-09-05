@@ -168,7 +168,6 @@ span.Carousel-Btn {
 /* ABOUT US SECTION */
 
 div.About-Section {
-
   background: radial-gradient(
     circle at top,
     var(--light-cream),
@@ -468,4 +467,89 @@ div.FAQ-Section h1 {
   height: 2px;
   width: 100%;
   background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+/* FOOTER SECTION */
+
+div.column-1 ul.navbar-nav li a.nav-link {
+  position: relative;
+}
+
+div.column-1 ul.navbar-nav li a.nav-link:hover {
+  text-shadow: 0px 0px 1px var(--light-cream);
+  color: var(--cream);
+  transition: all 0.2s ease-in;
+}
+
+div.column-1 ul.navbar-nav li a.nav-link::before {
+  position: absolute;
+  content: "";
+  bottom: 8px;
+  left: 0;
+  height: 1px;
+  background-color: var(--parchment);
+  box-shadow: 0px 0px 2px var(--gold);
+  opacity: 0;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+div.column-1 ul.navbar-nav li a.nav-link:hover::before {
+  width: 55%;
+  opacity: 1;
+}
+
+div.column-1 ul.navbar-nav {
+  margin-left: 25%;
+}
+
+div.footer-section {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(19, 16, 11, 0.78) 30%,
+      rgba(53, 32, 21, 0.84) 60%,
+      rgba(19, 16, 11, 0.87) 100%
+    ),
+    url("images/hogwarts-footer-img.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  aspect-ratio: 4/1;
+  background-size: cover;
+}
+
+div.footer-section .footer-text {
+  color: var(--parchment);
+  font-weight: 600;
+}
+div.footer-section h2 {
+  color: var(--light-cream) !important;
+}
+
+a.ftIcons {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  width: fit-content;
+  margin:auto;
+}
+
+.ftIcons {
+  position: relative;
+}
+
+.ftIcons::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  border: 2px solid var(--light-cream);
+  opacity: 0;
+  transform: scaleX(0);
+  border-radius:20px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.ftIcons:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
 }

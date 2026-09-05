@@ -35,6 +35,145 @@
 ::-webkit-scrollbar {
   display: none;
 }
+/* ADMIN INDEX */
+
+/* SIDEBAR */
+
+.Sidebar {
+  background-image:
+    linear-gradient(to bottom, rgba(38, 22, 14, 0.811) 0%, rgba(0, 0, 0, 0.6) 100%),
+    url("images/hogwarts-dashboard-img.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.Sidebar ul li a.nav-link {
+  color: var(--cream);
+}
+
+.Sidebar ul li a.nav-link:hover {
+  background-color: var(--cream);
+  color: var(--text-dark);
+}
+
+.Sidebar ul li a.nav-link,
+.Sidebar ul li a.nav-link.active {
+  letter-spacing: 1px;
+  font-size: 17px;
+  transition: all 0.3s ease-in;
+}
+
+.Sidebar ul li a.nav-link.active {
+  text-shadow: 0px 0px 3px var(--gold);
+  color: var(--text-dark);
+  background-color: var(--cream);
+}
+
+/* MAIN SECTION */
+
+div.hogwarts-card {
+  padding: 0 2%;
+  background: linear-gradient(
+    to right,
+    var(--text-dark) 0%,
+    var(--text-brown) 35%,
+    /* var(--) 50%, */ var(--text-brown) 65%,
+    var(--text-dark) 100%
+  );
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid var(--muted-gold);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 var(--muted-gold),
+    inset 0 -1px 0 var(--muted-gold),
+    inset 0 0 8px 4px var(--muted-gold);
+  color: var(--text-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.year-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5 ease-in;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.year-overlay .row {
+  margin: 0;
+  width: 100%;
+}
+
+.hogwarts-card:hover .year-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.year-card {
+  text-align: center;
+  opacity: 0;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+  transform: translateY(30px);
+  background: linear-gradient(
+    to right,
+    var(--text-dark) 0%,
+    var(--text-brown) 35%,
+    /* var(--) 50%, */ var(--text-brown) 65%,
+    var(--text-dark) 100%
+  );
+  border-radius: 20px;
+  border: 1px solid var(--muted-gold);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 var(--muted-gold),
+    inset 0 -1px 0 var(--muted-gold),
+    inset 0 0 8px 4px var(--muted-gold);
+}
+
+.hogwarts-card:hover .year-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger: FY -> SY -> TY, 0.5s gap */
+.year-overlay .col-lg-4:nth-child(1) .year-card {
+  transition-delay: 0s;
+}
+
+.year-overlay .col-lg-4:nth-child(2) .year-card {
+  transition-delay: 0.5s;
+}
+
+.year-overlay .col-lg-4:nth-child(3) .year-card {
+  transition-delay: 1s;
+}
+
+.magician-heading {
+  color: var(--soft-gold);
+  text-align-last: center;
+  /* word-spacing: 6px; */
+  line-height: 50px;
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 35px;
+  text-shadow: 0px 0px 5px var(--muted-gold);
+}
+
+.record {
+  font-size: 9vw;
+  font-family: "Times New Roman", Times, serif;
+  text-shadow: 0px 0px 5px var(--muted-gold);
+  color: var(--soft-gold);
+}
 
 /* NAVBAR */
 
@@ -187,26 +326,29 @@ button.add-student-btn:hover {
 
 /* VIEW STUDENT DETAILS */
 
-div a.add-btn{
+div a.add-btn {
   background-color: transparent;
-  color: var(--text-light);
+  color: var(--parchment);
   letter-spacing: 1px;
   text-shadow: 0px 0px 4px var(--gold);
 }
 
-div a.add-btn:hover{
-  color: var(--gold);
+div a.add-btn:hover {
+  color: var(--text-dark);
   background-color: var(--parchment);
   border: 1px solid var(--muted-gold);
 }
 
-div.card {
-  padding:0 2%;
-    background: linear-gradient(
+div.card{
+  background: transparent;
+}
+
+/* div.card {
+  padding: 0 2%;
+  background: linear-gradient(
     to right,
     var(--text-dark) 0%,
     var(--text-brown) 35%,
-    /* var(--) 50%, */
     var(--text-brown) 65%,
     var(--text-dark) 100%
   );
@@ -220,10 +362,10 @@ div.card {
     inset 0 -1px 0 var(--muted-gold),
     inset 0 0 8px 4px var(--muted-gold);
   color: var(--text-dark);
-}
+} */
 
 div.card h3 {
-  color: var(--soft-gold);
+  color: var(--text-dark);
   text-shadow: 0px 0px 3px var(--text-dark);
   padding: 10px 0px 2px 0px;
   letter-spacing: 2px;
@@ -240,27 +382,26 @@ div.table-responsive table.table thead th {
   text-align: center;
 }
 
-div.table-responsive table.table tbody tr:hover{
+div.table-responsive table.table tbody tr:hover {
   text-shadow: 0px 0px 1px var(--text-dark);
   letter-spacing: 0.1px;
   transition: all 0.2s ease-in-out;
-  color:var(--text-dark);
+  color: var(--text-dark);
 }
 
 div.table-responsive table.table tbody td,
-div.table-responsive table.table tbody tr:hover{
+div.table-responsive table.table tbody tr:hover {
   text-align: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(
     to right,
     var(--parchment) 0%,
-    /* var(--cream) 35%, */
-    var(--border) 100%
+    /* var(--cream) 35%, */ var(--border) 100%
   );
   overflow: hidden;
 }
 
-div.table-responsive table.table tbody tr:hover img{
+div.table-responsive table.table tbody tr:hover img {
   transform: scale(1.2);
   transition: all 0.3s ease-in-out;
 }
