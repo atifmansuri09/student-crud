@@ -273,11 +273,52 @@ section.Management p.About-Us-para {
   color: var(--text-dark);
 }
 
-.management-slider .carousel-item img {
+.management-img1,
+.management-img2,
+.management-img3,
+.management-img4,
+.management-img5,
+.management-img6 {
   width: 100%;
   height: 350px;
-  object-fit: cover;
-  object-position: center;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-top: 275px;
+  object-fit: contain;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div.management-img1 {
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.8) 25%, rgba(0, 0, 0, 0.1) 100%),
+    url("images/hogwarts-management-img1.jpg");
+}
+div.management-img2 {
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.7) 25%, rgba(0, 0, 0, 0.1) 100%),
+    url("images/hogwarts-management-img2.jpg");
+}
+div.management-img3 {
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.45) 25%, rgba(0, 0, 0, 0.1) 100%),
+    url("images/hogwarts-management-img3.jpg");
+}
+div.management-img4 {
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.6) 25%, rgba(0, 0, 0, 0.1) 100%),
+    url("images/hogwarts-management-img4.jpg");
+}
+div.management-img5 {
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.6) 25%, rgba(0, 0, 0, 0.1) 100%),
+    url("images/hogwarts-management-img5.jpg");
+}
+div.management-img6 {
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.8) 25%, rgba(0, 0, 0, 0.1) 100%),
+    url("images/hogwarts-management-img6.jpg");
 }
 
 /* HEAD STAFF SECTION (IMAGE SLIDER) */
@@ -286,10 +327,21 @@ h1.Head-Staff-header {
   background-color: var(--border);
 }
 
-div.headstaff-img1 {
+.headstaff-img1,
+.headstaff-img2,
+.headstaff-img3 {
   width: 100%;
   height: 600px;
   position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-top: 420px;
+  object-fit: contain;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div.headstaff-img1 {
   background-image:
     linear-gradient(
       to top,
@@ -298,17 +350,8 @@ div.headstaff-img1 {
       rgba(0, 0, 0, 0.1) 100%
     ),
     url("images/albus-dumbledore.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  padding-top: 420px;
-  object-fit: contain;
-  font-family: Arial, Helvetica, sans-serif;
 }
 div.headstaff-img2 {
-  width: 100%;
-  height: 600px;
-  position: relative;
   background-image:
     linear-gradient(
       to top,
@@ -317,17 +360,8 @@ div.headstaff-img2 {
       rgba(0, 0, 0, 0.1) 100%
     ),
     url("images/severus-snape.jpg");
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: cover;
-  padding-top: 420px;
-  object-fit: contain;
-  font-family: Arial, Helvetica, sans-serif;
 }
 div.headstaff-img3 {
-  width: 100%;
-  height: 600px;
-  position: relative;
   background-image:
     linear-gradient(
       to top,
@@ -336,13 +370,8 @@ div.headstaff-img3 {
       rgba(0, 0, 0, 0.1) 100%
     ),
     url("images/minerva-mcgognal.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  padding-top: 420px;
-  object-fit: contain;
-  font-family: Arial, Helvetica, sans-serif;
 }
+
 div.headstaff-img1 p.Header,
 div.headstaff-img2 p.Header,
 div.headstaff-img3 p.Header {
@@ -350,9 +379,9 @@ div.headstaff-img3 p.Header {
   line-height: 50px;
 }
 
-div.headstaff-img1 p.Sub-Header,
-div.headstaff-img2 p.Sub-Header,
-div.headstaff-img3 p.Sub-Header {
+p.Sub-Header,
+p.Sub-Header,
+p.Sub-Header {
   color: var(--soft-gold) !important;
   letter-spacing: 1px;
 }
@@ -527,11 +556,11 @@ div.footer-section h2 {
 }
 
 a.ftIcons {
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: center;
   width: fit-content;
-  margin:auto;
+  margin: auto;
 }
 
 .ftIcons {
@@ -545,8 +574,10 @@ a.ftIcons {
   border: 2px solid var(--light-cream);
   opacity: 0;
   transform: scaleX(0);
-  border-radius:20px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  border-radius: 20px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .ftIcons:hover::after {

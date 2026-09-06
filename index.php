@@ -17,10 +17,10 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause="false">
         <div class="carousel-inner">
             <div class="row">
-                <div class="carousel-item active col-lg-12 col-md-12 col-sm-12" data-bs-interval="2000">
+                <div class="carousel-item active col-lg-12 col-md-12 col-sm-12" data-bs-interval="3000">
                     <div class="hero-img1">
                         <!-- <img src="hero-img3.jpg" class="d-block w-100" alt="..."> -->
                         <p class="Header ms-5 fw-bold">WELCOME TO</p>
@@ -29,7 +29,7 @@
                         <p class="Body"><i>Manage your magical academic<br> journey with ease.</i></p>
                     </div>
                 </div>
-                <div class="carousel-item col-lg-12 col-md-12 col-sm-12" data-bs-interval="2000">
+                <div class="carousel-item col-lg-12 col-md-12 col-sm-12" data-bs-interval="3000">
                     <div class="hero-img2">
                         <p class="Header ms-5 fw-bold">EVERY STUDENT</p>
                         <p class="Header ms-5 fw-bold">HAS A STORY</p>
@@ -61,7 +61,7 @@
         </button>
     </div>
     <!-- ABOUT US SECTION -->
-    <div class="container-fluid About-Section py-5">
+    <div class="container-fluid About-Section py-5" id="AboutUs">
         <section class="About-Us row" id="About-Us">
             <div class="About-Us-img col-lg-6 col-md-12 col-sm-12">
                 <img src="images/about-hogwarts-img.png" alt="About Hogwarts Image" class="">
@@ -92,7 +92,7 @@
         </section>
     </div>
     <!-- HOGWARTS HOUSE (CARDS) -->
-    <div class="container-fluid mt-2 pt-5 House-section">
+    <div class="container-fluid mt-2 pt-5 House-section" id="HogwartsHouses">
         <div class="row card-section">
             <div class="col-lg-12">
                 <h1 class="Section-heading text-center mb-4 pb-4">HOGWARTS HOUSES</h1>
@@ -125,33 +125,48 @@
         </div>
     </div>
     <!-- MANAGEMENT SYSTEM -->
-    <div class="container-fluid Management-Section py-5 mt-2">
+    <div class="container-fluid Management-Section py-5 mt-2" id="OurManagement">
         <section class="Management row" id="Management">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <h1 class="About-Us-header fw-bold text-center mt-2 mb-5">MANAGEMENT SYSTEM</h1>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="col-lg-6 col-md-12 col-sm-12">
                 <!-- MANAGEMENT SLIDER 1 -->
-                <div id="carouselExampleIntervalManagement1" class="carousel slide management-slider"
-                    data-bs-ride="carousel">
+                <div id="carouselExampleCaptionManagement1" class="carousel slide" data-bs-ride="carousel" data-bs-pause="false">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptionManagement1" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
                     <div class="carousel-inner">
-                        <div class="carousel-item active" data-bs-interval="3000">
-                            <img src="images/hogwarts-management-img1.jpg" alt="...">
-                        </div>
-                        <div class="carousel-item" data-bs-interval="3000">
-                            <img src="images/hogwarts-management-img2.jpg" alt="...">
-                        </div>
-                        <div class="carousel-item" data-bs-interval="3000">
-                            <img src="images/hogwarts-management-img3.jpg" alt="...">
+                        <div class="row">
+                            <div class="carousel-item active col-lg-12 col-md-12 col-sm-12" data-bs-interval="3000">
+                                <div class="management-img1">
+                                    <p class="Sub-Header fw-bold text-light text-center">DINING HALL</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item col-lg-12 col-md-12 col-sm-12" data-bs-interval="3000">
+                                <div class="management-img2">
+                                    <p class="Sub-Header text-light fw-bold text-center">LIBRARY</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item col-lg-12 col-md-12 col-sm-12">
+                                <div class="management-img3">
+                                    <p class="Sub-Header text-light fw-bold text-center">CLASSROOM</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button"
-                        data-bs-target="#carouselExampleIntervalManagement1" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev">
                         <span class="Carousel-Btn carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button"
-                        data-bs-target="#carouselExampleIntervalManagement1" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next">
                         <span class="Carousel-Btn carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -180,26 +195,41 @@
                 </p>
                 <!-- MANAGEMENT SLIDER 2 -->
 
-                <div id="carouselExampleIntervalManagement2" class="carousel slide management-slider"
-                    data-bs-ride="carousel">
+                <div id="carouselExampleCaptionManagement2" class="carousel slide" data-bs-ride="carousel" data-bs-pause="false">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
                     <div class="carousel-inner">
-                        <div class="carousel-item active" data-bs-interval="3000">
-                            <img src="images/hogwarts-management-img1.jpg" alt="...">
-                        </div>
-                        <div class="carousel-item" data-bs-interval="3000">
-                            <img src="images/hogwarts-management-img2.jpg" alt="...">
-                        </div>
-                        <div class="carousel-item" data-bs-interval="3000">
-                            <img src="images/hogwarts-management-img3.jpg" alt="...">
+                        <div class="row">
+                            <div class="carousel-item active col-lg-12 col-md-12 col-sm-12" data-bs-interval="3000">
+                                <div class="management-img4">
+                                    <p class="Sub-Header fw-bold text-light text-center">MUSEUM</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item col-lg-12 col-md-12 col-sm-12" data-bs-interval="3000">
+                                <div class="management-img5">
+                                    <p class="Sub-Header text-light fw-bold text-center">GROUND</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item col-lg-12 col-md-12 col-sm-12">
+                                <div class="management-img6">
+                                    <p class="Sub-Header text-light fw-bold text-center">CHESS GROUND</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button"
-                        data-bs-target="#carouselExampleIntervalManagement2" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptionManagement2"
+                        data-bs-slide="prev">
                         <span class="Carousel-Btn carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button"
-                        data-bs-target="#carouselExampleIntervalManagement2" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next">
                         <span class="Carousel-Btn carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -209,8 +239,8 @@
     </div>
     <!-- HEAD STAFF SECTION (IMAGE SLIDER) -->
 
-    <h1 class="Head-Staff-header text-center fw-bold mt-2 py-3">OUR HEAD STAFF</h1>
-    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <h1 class="Head-Staff-header text-center fw-bold mt-2 py-3" id="HeadStaff">OUR HEAD STAFF</h1>
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause="false">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
@@ -221,7 +251,7 @@
         </div>
         <div class="carousel-inner">
             <div class="row">
-                <div class="carousel-item active col-lg-12 col-md-12 col-sm-12" data-bs-interval="2000">
+                <div class="carousel-item active col-lg-12 col-md-12 col-sm-12" data-bs-interval="3000">
                     <div class="headstaff-img1">
                         <!-- <img src="hero-img3.jpg" class="d-block w-100" alt="..."> -->
                         <p class="Header ms-5 fw-bold text-light text-center">ALBUS DUMBLEDORE</p>
@@ -231,7 +261,7 @@
                             knowledge, compassion, and courage.</p>
                     </div>
                 </div>
-                <div class="carousel-item col-lg-12 col-md-12 col-sm-12" data-bs-interval="2000">
+                <div class="carousel-item col-lg-12 col-md-12 col-sm-12" data-bs-interval="3000">
                     <div class="headstaff-img2">
                         <p class="Header ms-5 text-light fw-bold text-center">SEVERUS SNAPE</p>
                         <p class="Sub-Header ms-5 text-light fw-bold text-center"><i>~PROFESSOR OF POTION~</i></p>
@@ -264,7 +294,7 @@
         </button>
     </div>
     <!-- FREUENTLY ASKED QUESTIONS -->
-    <div class="FAQ-Section container-fluid px-5">
+    <div class="FAQ-Section container-fluid px-5" id="FAQs">
         <h1 class="text-center mt-3 pt-4">FAQs</h1>
         <div class="FAQ-Sub-Section row px-5">
             <div class="accordion p-5" id="accordionPanelsStayOpenExample">
@@ -377,10 +407,10 @@
                         <h2 class="text-light mb-4 text-center">Quick Links</h2>
                         <ul class="navbar-nav">
                             <li><a href="#AboutUs" class="footer-text nav-link ms-5">About Us</a></li>
-                            <li><a href="#Houses" class="footer-text nav-link ms-5">Houses</a></li>
-                            <li><a href="#Management" class="footer-text nav-link ms-5">Management</a></li>
+                            <li><a href="#HogwartsHouses" class="footer-text nav-link ms-5">Houses</a></li>
+                            <li><a href="#OurManagement" class="footer-text nav-link ms-5">Management</a></li>
                             <li><a href="#HeadStaff" class="footer-text nav-link ms-5">Head Staff</a></li>
-                            <li><a href="#FAQ" class="footer-text nav-link ms-5">FAQs</a></li>
+                            <li><a href="#FAQs" class="footer-text nav-link ms-5">FAQs</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12 column-2 pt-5">

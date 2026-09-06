@@ -18,6 +18,11 @@ if (isset($_GET["sort"])) {
     }
 }
 
+$sortColumn = "id";
+if (isset($_GET["sortby"]) && $_GET["sortby"] == "name") {
+    $sortColumn = "name";
+}
+
 // PAGINATION
 $limit = 5;
 $page = 1;
@@ -28,7 +33,7 @@ $offset = ($page - 1) * $limit;
 
 // TOTAL RECORDS
 $countQuery = "
-SELECT COUNT(*) AS total FROM students WHERE name LIKE '%$search%' OR email LIKE '%$search%' OR course LIKE '%$search%'";
+SELECT COUNT(*) AS total FROM students WHERE name LIKE '%$search%' OR email LIKE '%$search%' OR house LIKE '%$search%'";
 
 $countResult = mysqli_query($conn, $countQuery);
 $totalRecords = mysqli_fetch_assoc($countResult)["total"];
@@ -36,8 +41,8 @@ $totalPages = ceil($totalRecords / $limit);
 
 // MAIN QUERY 
 $sql = "SELECT * FROM students 
-WHERE name LIKE '%$search%' OR email LIKE '%$search%' OR course LIKE '%$search%'
-ORDER BY name $sort LIMIT $limit OFFSET $offset";
+WHERE name LIKE '%$search%' OR email LIKE '%$search%' OR house LIKE '%$search%'
+ORDER BY $sortColumn $sort LIMIT $limit OFFSET $offset";
 $result = mysqli_query($conn, $sql);
 
 ?>
@@ -62,30 +67,18 @@ $result = mysqli_query($conn, $sql);
 </head>
 
 <body>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light mb-5">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php" target="_blank"><img class="main-logo"
-                    src="images/hogwarts-logo-img.png"></a>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link me-3 ms-2 btn" href="Home" target="_blank">Home</a>
-                    <a class="nav-link me-3 btn" href="add-student-details.php" target="_blank">Add Student</a>
-                    <a class="nav-link me-3 btn active" href="view-student-details.php" target="_blank">View
-                        Students</a>
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </div>
-            </div>
-        </div>
-    </nav> -->
     <!-- SIDEBAR -->
     <div class="container-fluid">
         <div class="row">
-             <!-- SIDEBAR -->
-            <div class="Sidebar col-3">
+            <!-- SIDEBAR -->
+            <div class="Sidebar col-lg-2 col-md-2 col-sm-2">
                 <ul class="nav gap-3 flex-column nav-pills justify-content-center" style="height:100vh;">
                     <li class="nav-item mb-3">
-                        <a href="adminindex.php" class=""><img src="images/hogwarts-dashboard-logo.png"class="d-block mx-auto" alt="" style="width:45%;"></a>
-                        <h3 class="text-center pt-0" style="color:var(--cream);letter-spacing: 1px;font-family: 'Times New Roman', Times, serif;color:var(--border);">HOGWARTS</h3>
+                        <a href="adminindex.php" class=""><img src="images/hogwarts-dashboard-logo.png"
+                                class="d-block mx-auto" alt="" style="width:45%;"></a>
+                        <h3 class="text-center pt-0 h4"
+                            style="color:var(--cream);letter-spacing: 1px;font-family: 'Times New Roman', Times, serif;color:var(--border);">
+                            HOGWARTS</h3>
                     </li>
                     <li>
                         <a class="nav-link" href="adminindex.php" aria-current="page"><svg
@@ -106,10 +99,10 @@ $result = mysqli_query($conn, $sql);
                                     d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4" />
                             </svg>Add Magician</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="view-student-details.php"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="25" height="25" fill="currentColor" class="mb-2 me-2 bi bi-people-fill"
-                                viewBox="0 0 16 16">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="view-student-details.php"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="mb-2 me-2 bi bi-people-fill" viewBox="0 0 16 16">
                                 <path
                                     d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
                             </svg>View Magicians</a>
@@ -126,8 +119,8 @@ $result = mysqli_query($conn, $sql);
                     </li>
                 </ul>
             </div>
-            <div class="container-fluid col-lg-9 mt-5">
-                <div class="card shadow">
+            <div class="container-fluid col-lg-10 col-md-10 col-sm-10 mt-5">
+                <div class="card shadow table-card">
                     <div class="card-header">
                         <h3 class="mb-0 text-center">Hogwarts Magicians </h3>
                     </div>
@@ -143,9 +136,13 @@ $result = mysqli_query($conn, $sql);
                                 </form>
                             </div>
                             <div class="col-md-6 text-end pt-4 pe-4">
-                                <a href="view-student-details.php?search=<?php echo $search; ?> &sort=asc"
-                                    class="btn btn-outline-daek">A-Z</a>
+                                <!-- <a href="view-student-details.php?search=<?php echo $search; ?> &sort=asc"
+                                    class="btn btn-outline-dark">A-Z</a>
                                 <a href="view-student-details.php? search=<?php echo $search; ?> &sort=desc"
+                                    class="btn btn-outline-dark ms-3 me-1">Z-A</a> -->
+                                <a href="view-student-details.php?search=<?php echo $search; ?>&sort=asc&sortby=name"
+                                    class="btn btn-outline-dark">A-Z</a>
+                                <a href="view-student-details.php?search=<?php echo $search; ?>&sort=desc&sortby=name"
                                     class="btn btn-outline-dark ms-3 me-1">Z-A</a>
                                 <a href="add-student-details.php" class="add-btn btn">+Add Student </a>
                             </div>
@@ -157,7 +154,7 @@ $result = mysqli_query($conn, $sql);
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Email</th>
-                                        <th>Course</th>
+                                        <th>House</th>
                                         <th>Academic Year</th>
                                         <th>Phone Number</th>
                                         <th>Photo</th>
@@ -181,7 +178,7 @@ $result = mysqli_query($conn, $sql);
                                                     <?php echo $row["email"]; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $row["course"]; ?>
+                                                    <?php echo $row["house"]; ?>
                                                 </td>
                                                 <td>
                                                     <?php echo $row["classyear"]; ?>
@@ -189,10 +186,11 @@ $result = mysqli_query($conn, $sql);
                                                 <td>
                                                     <?php echo $row["phonenumber"]; ?>
                                                 </td>
-                                                <td><img src="uploads/<?php echo $row["photo"]; ?>" alt="" width="100"
-                                                    height="100"
-                                                    class="rounded-circle object-fit-cover object-position-center"
-                                                    style="object-position: center;">
+                                                <td><a href="uploads/<?php echo $row["photo"]; ?>"><img
+                                                            src="uploads/<?php echo $row["photo"]; ?>" alt="" width="100"
+                                                            height="100"
+                                                            class="rounded-circle object-fit-cover object-position-center"
+                                                            style="object-position: center;"></a>
                                                 </td>
                                                 <td>
                                                     <a href="edit-student-details.php?id=<?php echo $row["id"]; ?>"
@@ -220,8 +218,12 @@ $result = mysqli_query($conn, $sql);
                                     ?>
                                     <li class="page-item <?php if ($page == $i)
                                         echo "active"; ?> ">
-                                        <a class="page-link" href="?page =<?php echo $i; ?>
-                        &search =<?php echo $search; ?> &sort =<?php echo strtolower($sort); ?>">
+                                        <!-- <a class="page-link" href="?page=<?php echo $i; ?>
+                        &search=<?php echo $search; ?>&sort=<?php echo strtolower($sort); ?>">
+                                            <?php echo $i; ?>
+                                        </a> -->
+                                        <a class="page-link"
+                                            href="?page=<?php echo $i; ?>&search=<?php echo $search; ?>&sort=<?php echo strtolower($sort); ?>&sortby=<?php echo $sortColumn; ?>">
                                             <?php echo $i; ?>
                                         </a>
                                     </li>
@@ -240,103 +242,6 @@ $result = mysqli_query($conn, $sql);
             </div>
         </div>
     </div>
-    <!-- <div class="container mt-5">
-        <div class="card shadow">
-            <div class="card-header">
-                <h3 class="mb-0 text-center">Hogwarts Students </h3>
-            </div>
-            <div class="card-body>">
-                <div class="row mb-3">
-                    <div class="col-md-6 pt-4">
-                        <form method="GET">
-                            <div class="input-group">
-                                <input type="text" name="search" class="form-control ms-4"
-                                    placeholder="Search Student...." value="<?php echo $search; ?>">
-                                <button class="btn btn-outline-light"> Search </button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-md-6 text-end pt-4 pe-4">
-                        <a href="view-student-details.php?search=<?php echo $search; ?> &sort=asc"
-                            class="btn btn-outline-light">A-Z</a>
-                        <a href="view-student-details.php? search=<?php echo $search; ?> &sort=desc"
-                            class="btn btn-outline-light ms-3 me-1">Z-A</a>
-                        <a href="add-student-details.php" class="add-btn btn">+Add Student </a>
-                    </div>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-hover table-striped align-middle">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Course</th>
-                                <th>Academic Year</th>
-                                <th>Phone Number</th>
-                                <th>Photo</th>
-                                <th width="90">Edit </th>
-                                <th width="90">Delete </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            if (mysqli_num_rows($result) > 0) {
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $row["id"]; ?></td>
-                                        <td><?php echo $row["name"]; ?></td>
-                                        <td><?php echo $row["email"]; ?></td>
-                                        <td><?php echo $row["course"]; ?></td>
-                                        <td><?php echo $row["classyear"]; ?></td>
-                                        <td><?php echo $row["phonenumber"]; ?></td>
-                                        <td><img src="uploads/<?php echo $row["photo"]; ?>" alt="" width="100" height="100"
-                                                class="rounded-circle object-fit-cover object-position-center"
-                                                style="object-position: center;">
-                                        </td>
-                                        <td>
-                                            <a href="edit-student-details.php?id=<?php echo $row["id"]; ?>"
-                                                class="btn btn-md btn-primary">Edit</a>
-                                        </td>
-                                        <td>
-                                            <a href="delete-student-details.php?id=<?php echo $row["id"]; ?>"
-                                                class="btn btn-md btn-danger"
-                                                onclick="return confirm ('Delete this Student?')">Delete</a>
-                                        </td>
-                                    </tr>
-                                <?php }
-                            } else { ?>
-                                <tr>
-                                    <td colspan="7" class="text-center">No Records Found</td>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
-                <nav>
-                    <ul class="pagination justify-content-center">
-                        <?php
-                        for ($i = 1; $i <= $totalPages; $i++) {
-                            ?>
-                            <li class="page-item <?php if ($page == $i)
-                                echo "active"; ?> ">
-                                <a class="page-link" href="?page =<?php echo $i; ?>
-                        &search =<?php echo $search; ?> &sort =<?php echo strtolower($sort); ?>">
-                                    <?php echo $i; ?>
-                                </a>
-                            </li>
-                        <?php } ?>
-                    </ul>
-                </nav>
-                <div class="text-center">
-                    <p class="text-light fs-5">
-                        Total Students: <strong><?php echo $totalRecords; ?> </strong>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"> </script>
 </body>
 

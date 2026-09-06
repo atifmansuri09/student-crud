@@ -43,11 +43,11 @@ $ty = mysqli_fetch_assoc($resultty)["total"];
     <div class="container-fluid">
         <div class="row">
             <!-- SIDEBAR -->
-            <div class="Sidebar col-3">
+            <div class="Sidebar col-2">
                 <ul class="nav gap-3 flex-column nav-pills justify-content-center" style="height:100vh;">
                     <li class="nav-item mb-3">
                         <a href="adminindex.php" class=""><img src="images/hogwarts-dashboard-logo.png"class="d-block mx-auto" alt="" style="width:45%;"></a>
-                        <h3 class="text-center pt-0" style="color:var(--cream);letter-spacing: 1px;font-family: 'Times New Roman', Times, serif;color:var(--border);">HOGWARTS</h3>
+                        <h3 class="text-center pt-0 h4" style="color:var(--cream);letter-spacing: 1px;font-family: 'Times New Roman', Times, serif;color:var(--border);">HOGWARTS</h3>
                     </li>
                     <li>
                         <a class="nav-link active" href="adminindex.php" aria-current="page"><svg
@@ -88,7 +88,7 @@ $ty = mysqli_fetch_assoc($resultty)["total"];
                     </li>
                 </ul>
             </div>
-            <div class="col-9">
+            <div class="col-10">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 mt-5">
                         <div class="hogwarts-card mt-5 py-4">
@@ -106,7 +106,7 @@ $ty = mysqli_fetch_assoc($resultty)["total"];
                             </div>
                             <div class="year-overlay">
                                 <div class="row">
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <div class="year-card">
                                             <p class="record">
                                                 <?php echo $fy; ?>
@@ -114,7 +114,7 @@ $ty = mysqli_fetch_assoc($resultty)["total"];
                                             <h2 class="magician-heading">MAGICIANS IN <br> FY</h2>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <div class="year-card">
                                             <p class="record">
                                                 <?php echo $sy; ?>
@@ -122,7 +122,7 @@ $ty = mysqli_fetch_assoc($resultty)["total"];
                                             <h2 class="magician-heading">MAGICIANS IN <br> SY</h2>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <div class="year-card">
                                             <p class="record">
                                                 <?php echo $ty; ?>

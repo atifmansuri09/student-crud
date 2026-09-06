@@ -21,7 +21,7 @@ if (isset($_POST["edit"])) {
     $id = $_POST["id"];
     $name = $_POST["name"];
     $email = $_POST["email"];
-    $course = $_POST["course"];
+    $house = $_POST["house"];
     $year = $_POST["classyear"];
     $phonenumber = $_POST["phonenumber"];
     $type = $_FILES["studentphoto"]["type"];
@@ -30,7 +30,7 @@ if (isset($_POST["edit"])) {
     $studentphoto = time() . "_" . $name . $extension;
     $temp = $_FILES["studentphoto"]["tmp_name"];
 
-    if (empty($name) || empty($email) || empty($course) || empty($year) || empty($phonenumber)) {
+    if (empty($name) || empty($email) || empty($house) || empty($year) || empty($phonenumber)) {
         $message = "All Fields must be required!";
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $message = "Invalid Email!";
@@ -45,12 +45,12 @@ if (isset($_POST["edit"])) {
             mkdir("uploads", 0777, true);
         }
         move_uploaded_file($temp, "uploads/" . $studentphoto);
-        // $stmt = mysqli_prepare($conn, "INSERT INTO students (name,email,course,classyear,phonenumber,photo)
+        // $stmt = mysqli_prepare($conn, "INSERT INTO students (name,email,house,classyear,phonenumber,photo)
         //         VALUES (?,?,?,?,?,?);");
         $stmt = mysqli_prepare($conn, "UPDATE students
-        SET name=?,email=?,course=?,classyear=?,phonenumber=?,photo=?
+        SET name=?,email=?,house=?,classyear=?,phonenumber=?,photo=?
         WHERE id = ?;");
-        mysqli_stmt_bind_param($stmt, "sssssss", $name, $email, $course, $year, $phonenumber, $studentphoto, $id);
+        mysqli_stmt_bind_param($stmt, "sssssss", $name, $email, $house, $year, $phonenumber, $studentphoto, $id);
         $result = mysqli_stmt_execute($stmt); //Returns true or false
         if ($result) {
             header("Location:view-student-details.php");
@@ -96,12 +96,12 @@ if (isset($_POST["edit"])) {
     <div class="container-fluid">
         <div class="row">
             <!-- SIDEBAR -->
-            <div class="Sidebar col-3">
+            <div class="Sidebar col-2">
                 <ul class="nav gap-3 flex-column nav-pills justify-content-center" style="height:100vh;">
                     <li class="nav-item mb-3">
                         <a href="adminindex.php" class=""><img src="images/hogwarts-dashboard-logo.png"
                                 class="d-block mx-auto" alt="" style="width:45%;"></a>
-                        <h3 class="text-center pt-0"
+                        <h3 class="text-center pt-0 h4"
                             style="color:var(--cream);letter-spacing: 1px;font-family: 'Times New Roman', Times, serif;color:var(--border);">
                             HOGWARTS</h3>
                     </li>
@@ -144,7 +144,10 @@ if (isset($_POST["edit"])) {
                     </li>
                 </ul>
             </div>
-            <div class="addstudentpage">
+            <div class="addstudentpage col-lg-10 card">
+                <div class="card-header">
+                    <h3 class="mb-0 text-center">Edit Magician</h3>
+                </div>
                 <p class="message text-center">
                     <?php echo $message; ?>
                 </p>
@@ -176,11 +179,16 @@ if (isset($_POST["edit"])) {
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <label for="validationCustom03" class="form-label">Course</label>
-                        <input type="text" class="form-control" name="course" placeholder="Enter your Course..."
-                            value="<?php echo $row["course"]; ?>" id="validationCustom03" required>
+                        <label for="validationCustom03" class="form-label">House</label>
+                        <select class="form-select" id="validationCustom03" name="house" value="<?php echo $row["house"]; ?>"required>
+                            <option disabled value="">Select your House</option>
+                            <option value="Gryffindor">Gryffindor</option>
+                            <option value="Hufflepuff">Hufflepuff</option>
+                            <option value="Ravenclaw">Ravenclaw</option>
+                            <option value="Slytherin">Slytherin</option>
+                        </select>
                         <div class="invalid-feedback">
-                            Please provide a valid Course.
+                            Please select a valid House.
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12">
@@ -213,10 +221,20 @@ if (isset($_POST["edit"])) {
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">
-                        <button class="btn btn-outline-primary btn-lg mt-2 mb-4" type="submit" name="edit">Submit
-                            form</button>
-                        <button class="btn btn-outline-secondary btn-lg mt-2 mb-4 ms-5" type="reset" value="Reset"
-                            name="reset">Reset form</button>
+                        <button class="submit-btn btn mt-2 mb-4 pt-2" type="submit" name="edit">Edit <svg
+                                xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="mb-1 ms-2 bi bi-feather" viewBox="0 0 16 16">
+                                <path
+                                    d="M15.807.531c-.174-.177-.41-.289-.64-.363a3.8 3.8 0 0 0-.833-.15c-.62-.049-1.394 0-2.252.175C10.365.545 8.264 1.415 6.315 3.1S3.147 6.824 2.557 8.523c-.294.847-.44 1.634-.429 2.268.005.316.05.62.154.88q.025.061.056.122A68 68 0 0 0 .08 15.198a.53.53 0 0 0 .157.72.504.504 0 0 0 .705-.16 68 68 0 0 1 2.158-3.26c.285.141.616.195.958.182.513-.02 1.098-.188 1.723-.49 1.25-.605 2.744-1.787 4.303-3.642l1.518-1.55a.53.53 0 0 0 0-.739l-.729-.744 1.311.209a.5.5 0 0 0 .443-.15l.663-.684c.663-.68 1.292-1.325 1.763-1.892.314-.378.585-.752.754-1.107.163-.345.278-.773.112-1.188a.5.5 0 0 0-.112-.172M3.733 11.62C5.385 9.374 7.24 7.215 9.309 5.394l1.21 1.234-1.171 1.196-.027.03c-1.5 1.789-2.891 2.867-3.977 3.393-.544.263-.99.378-1.324.39a1.3 1.3 0 0 1-.287-.018Zm6.769-7.22c1.31-1.028 2.7-1.914 4.172-2.6a7 7 0 0 1-.4.523c-.442.533-1.028 1.134-1.681 1.804l-.51.524zm3.346-3.357C9.594 3.147 6.045 6.8 3.149 10.678c.007-.464.121-1.086.37-1.806.533-1.535 1.65-3.415 3.455-4.976 1.807-1.561 3.746-2.36 5.31-2.68a8 8 0 0 1 1.564-.173" />
+                            </svg></button>
+                        <button class="submit-btn btn mt-2 mb-4 ms-5 pt-2" type="reset" value="Reset"
+                            name="reset">Reset<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                fill="currentColor" class="mb-1 ms-2 bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z" />
+                                <path
+                                    d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466" />
+                            </svg></button>
                     </div>
                 </form>
             </div>
