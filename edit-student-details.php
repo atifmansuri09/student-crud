@@ -14,51 +14,6 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 $row = mysqli_fetch_assoc($result);
 
-
-// EDITING IT TO DATABASE
-
-if (isset($_POST["edit"])) {
-    $id = $_POST["id"];
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $house = $_POST["house"];
-    $year = $_POST["classyear"];
-    $phonenumber = $_POST["phonenumber"];
-    $type = $_FILES["studentphoto"]["type"];
-    $size = $_FILES["studentphoto"]["size"];
-    $extension = ($type == "image/png") ? ".png" : ".jpg";
-    $studentphoto = time() . "_" . $name . $extension;
-    $temp = $_FILES["studentphoto"]["tmp_name"];
-
-    if (empty($name) || empty($email) || empty($house) || empty($year) || empty($phonenumber)) {
-        $message = "All Fields must be required!";
-    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $message = "Invalid Email!";
-    } else if (strlen($phonenumber) != 10) {
-        $message = "Phone Number must be of 10 digits!";
-    } else if ($type != "image/jpeg" && $type != "image/png") {
-        $message = "Only PNG or JPG Images Allowed!";
-    } else if ($size > 2097152) {
-        $message = "Maximum File Size is 2MB";
-    } else {
-        if (!file_exists("uploads")) {
-            mkdir("uploads", 0777, true);
-        }
-        move_uploaded_file($temp, "uploads/" . $studentphoto);
-        // $stmt = mysqli_prepare($conn, "INSERT INTO students (name,email,house,classyear,phonenumber,photo)
-        //         VALUES (?,?,?,?,?,?);");
-        $stmt = mysqli_prepare($conn, "UPDATE students
-        SET name=?,email=?,house=?,classyear=?,phonenumber=?,photo=?
-        WHERE id = ?;");
-        mysqli_stmt_bind_param($stmt, "sssssss", $name, $email, $house, $year, $phonenumber, $studentphoto, $id);
-        $result = mysqli_stmt_execute($stmt); //Returns true or false
-        if ($result) {
-            header("Location:view-student-details.php");
-        } else {
-            $message = "Failed to Edit Student Details! Error : " . mysqli_error($conn);
-        }
-    }
-}
 ?>
 <!-- FRONTENED -->
 <!DOCTYPE html>
@@ -79,20 +34,7 @@ if (isset($_POST["edit"])) {
 </head>
 
 <body>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light mb-5">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php" target="_blank"><img class="main-logo"
-                    src="images/hogwarts-logo-img.png"></a>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link me-3 ms-2 btn" href="Home" target="_blank">Home</a>
-                    <a class="nav-link me-3 btn" href="add-student-details.php" target="_blank">Add Student</a>
-                    <a class="nav-link me-3 btn" href="view-student-details.php" target="_blank">View Students</a>
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </div>
-            </div>
-        </div>
-    </nav> -->
+    <!-- SIDEBAR -->
     <div class="container-fluid">
         <div class="row">
             <!-- SIDEBAR -->
@@ -148,10 +90,10 @@ if (isset($_POST["edit"])) {
                 <div class="card-header">
                     <h3 class="mb-0 text-center">Edit Magician</h3>
                 </div>
-                <p class="message text-center">
+                <!-- <p class="message text-center">
                     <?php echo $message; ?>
-                </p>
-                <form class="add-student row g-3 needs-validation" novalidate method="post"
+                </p> -->
+                <form class="add-student row g-3 needs-validation" action="update.php   " novalidate method="post"
                     enctype="multipart/form-data">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
@@ -180,7 +122,8 @@ if (isset($_POST["edit"])) {
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <label for="validationCustom03" class="form-label">House</label>
-                        <select class="form-select" id="validationCustom03" name="house" value="<?php echo $row["house"]; ?>"required>
+                        <select class="form-select" id="validationCustom03" name="house"
+                            value="<?php echo $row["house"]; ?>" required>
                             <option disabled value="">Select your House</option>
                             <option value="Gryffindor">Gryffindor</option>
                             <option value="Hufflepuff">Hufflepuff</option>
@@ -197,8 +140,8 @@ if (isset($_POST["edit"])) {
                             value="<?php echo $row["classyear"]; ?>">
                             <option disabled value="">Select your Year</option>
                             <option value="FY">FY</option>
-                            <option value="TY">TY</option>
                             <option value="SY">SY</option>
+                            <option value="TY">TY</option>
                         </select>
                         <div class="invalid-feedback">
                             Please select a valid Academic year.
@@ -212,10 +155,16 @@ if (isset($_POST["edit"])) {
                             Please provide a valid Phone Number.
                         </div>
                     </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-6">
+                        <img src="uploads/<?php echo $row["photo"]; ?>" alt="Photo" width="120" height="120"
+                            class="rounded-circle object-fit-cover ms-4">
+                    </div>
+
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <label for="" class="form-label">Upload your Photo</label>
                         <input type="file" name="studentphoto" accept="image/jpeg,image/png" class="form-control"
-                            value="<?php echo $row["photo"]; ?>" required>
+                            value="<?php echo $row["photo"]; ?>">
                         <div class="invalid-feedback">
                             Select an Image!
                         </div>
@@ -242,7 +191,7 @@ if (isset($_POST["edit"])) {
     </div>
 
     <script src="bootstrap.min.js"></script>
-    <script>
+    <!-- <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {
             'use strict'
@@ -263,7 +212,7 @@ if (isset($_POST["edit"])) {
                     }, false)
                 })
         })()
-    </script>
+    </script> -->
 </body>
 
 </html>
