@@ -48,7 +48,7 @@
         data-bs-pause="false">
         <div class="carousel-inner">
             <div class="row">
-                <div class="carousel-item active col-lg-12 col-md-12 col-sm-12" data-bs-interval="3000">
+                <div class="carousel-item active col-lg-12 col-md-12 col-sm-12" data-bs-interval="5000">
                     <div class="hero-img1">
                         <!-- <img src="hero-img3.jpg" class="d-block w-100" alt="..."> -->
                         <p class="Header ms-5 fw-bold">WELCOME TO</p>
@@ -57,7 +57,7 @@
                         <p class="Body"><i>Manage your magical academic<br> journey with ease.</i></p>
                     </div>
                 </div>
-                <div class="carousel-item col-lg-12 col-md-12 col-sm-12" data-bs-interval="3000">
+                <div class="carousel-item col-lg-12 col-md-12 col-sm-12" data-bs-interval="5000">
                     <div class="hero-img2">
                         <p class="Header ms-5 fw-bold">EVERY STUDENT</p>
                         <p class="Header ms-5 fw-bold">HAS A STORY</p>
@@ -172,12 +172,12 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="row">
-                            <div class="carousel-item active col-lg-12 col-md-12 col-sm-12" data-bs-interval="3000">
+                            <div class="carousel-item active col-lg-12 col-md-12 col-sm-12" data-bs-interval="5000">
                                 <div class="management-img1">
                                     <p class="Sub-Header fw-bold text-light text-center">DINING HALL</p>
                                 </div>
                             </div>
-                            <div class="carousel-item col-lg-12 col-md-12 col-sm-12" data-bs-interval="3000">
+                            <div class="carousel-item col-lg-12 col-md-12 col-sm-12" data-bs-interval="5000">
                                 <div class="management-img2">
                                     <p class="Sub-Header text-light fw-bold text-center">LIBRARY</p>
                                 </div>
@@ -200,18 +200,6 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-                <p class="About-Us-para fs-4 mt-4" style="font-family:'Tongari Regular',serif;"><b>1.)
-                    </b>
-                    <b>Our Student Management System</b> makes managing student records simple with complete CRUD
-                    functionality. Add, view, update, and delete student information with ease.
-                </p>
-
-                <p class="About-Us-para fs-4 mt-4" style="font-family:'Tongari Regular',serif;"><b>2.)
-                    </b>Keep all
-                    student data organized and structured in one place, making records easy to access and manage.
-                </p>
-            </div>
-            <div class="Management-img col-lg-6 col-md-12 col-sm-12">
                 <p class="About-Us-para fs-4 mt-4" style="font-family:'Tongari Regular',serif;"><b>3.)
                     </b>With a
                     clean UI and simple features, the system provides a smooth and efficient way to manage student
@@ -221,6 +209,18 @@
                     </b>Designed
                     with simplicity in mind, the platform offers a clean experience that makes everyday student
                     management faster and more convenient.
+                </p>
+            </div>
+            <div class="Management-img col-lg-6 col-md-12 col-sm-12">
+                <p class="About-Us-para fs-4 mt-4" style="font-family:'Tongari Regular',serif;"><b>1.)
+                    </b>
+                    <b>Our Student Management System</b> makes managing student records simple with complete CRUD
+                    functionality. Add, view, update, and delete student information with ease.
+                </p>
+
+                <p class="About-Us-para fs-4 mt-4" style="font-family:'Tongari Regular',serif;"><b>2.)
+                    </b>Keep all
+                    student data organized and structured in one place, making records easy to access and manage.
                 </p>
                 <!-- MANAGEMENT SLIDER 2 -->
 
@@ -236,12 +236,12 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="row">
-                            <div class="carousel-item active col-lg-12 col-md-12 col-sm-12" data-bs-interval="3000">
+                            <div class="carousel-item active col-lg-12 col-md-12 col-sm-12" data-bs-interval="5000">
                                 <div class="management-img4">
                                     <p class="Sub-Header fw-bold text-light text-center">MUSEUM</p>
                                 </div>
                             </div>
-                            <div class="carousel-item col-lg-12 col-md-12 col-sm-12" data-bs-interval="3000">
+                            <div class="carousel-item col-lg-12 col-md-12 col-sm-12" data-bs-interval="5000">
                                 <div class="management-img5">
                                     <p class="Sub-Header text-light fw-bold text-center">GROUND</p>
                                 </div>
@@ -282,7 +282,7 @@
         </div>
         <div class="carousel-inner">
             <div class="row">
-                <div class="carousel-item active col-lg-12 col-md-12 col-sm-12" data-bs-interval="3000">
+                <div class="carousel-item active col-lg-12 col-md-12 col-sm-12" data-bs-interval="4000">
                     <div class="headstaff-img1">
                         <!-- <img src="hero-img3.jpg" class="d-block w-100" alt="..."> -->
                         <p class="Header ms-5 fw-bold text-light text-center">ALBUS DUMBLEDORE</p>
@@ -292,7 +292,7 @@
                             knowledge, compassion, and courage.</p>
                     </div>
                 </div>
-                <div class="carousel-item col-lg-12 col-md-12 col-sm-12" data-bs-interval="3000">
+                <div class="carousel-item col-lg-12 col-md-12 col-sm-12" data-bs-interval="4000">
                     <div class="headstaff-img2">
                         <p class="Header ms-5 text-light fw-bold text-center">SEVERUS SNAPE</p>
                         <p class="Sub-Header ms-5 text-light fw-bold text-center"><i>~PROFESSOR OF POTION~</i></p>
